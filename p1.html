@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember & Oak Coffee Roasters | Specialty Café in Indiranagar, Bengaluru</title>
+<meta name="description" content="Specialty espresso, single-origin filter coffee and fresh-baked pastries in Indiranagar, Bengaluru. Order ahead or reserve a table.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f4ecdc;--beige:#e9dfcb;--sand:#d8c9ab;--card:#fbf6ea;--espresso:#2b1d14;--brown:#5a3f2b;--olive:#5f6a3a;--olive-d:#464e2a;--line:rgba(43,29,20,.16);--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--w:1200px;--pad:clamp(20px,4vw,48px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--sans);background:var(--cream);color:var(--espresso);line-height:1.6;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+section{padding:clamp(56px,8vw,104px) 0}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,6.5vw,4.8rem)}
+h2{font-size:clamp(1.9rem,4vw,3rem)}
+h3{font-size:1.25rem}
+.lede{max-width:52ch;color:var(--brown)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.head p{max-width:44ch;color:var(--brown)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 26px;border-radius:999px;border:1px solid var(--espresso);background:var(--espresso);color:var(--cream);font-weight:500;transition:background .2s,color .2s,transform .15s}
+.btn:hover{background:var(--olive);border-color:var(--olive)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--espresso)}
+.btn.ghost:hover{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+.btn.light{background:var(--cream);color:var(--espresso);border-color:var(--cream)}
+.btn.light:hover{background:var(--beige)}
+.btn.sm{min-height:38px;padding:0 18px;font-size:.9rem}
+.ph{background:linear-gradient(135deg,var(--sand),var(--beige));overflow:hidden;position:relative}
+.ph img{transition:transform .6s ease}
+.zoom:hover .ph img,.ph.z:hover img{transform:scale(1.05)}
+.ann{background:var(--olive-d);color:var(--cream);text-align:center;font-size:.88rem;padding:9px var(--pad)}
+header{position:sticky;top:0;z-index:50;background:rgba(244,236,220,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font-family:var(--serif);font-size:1.5rem}
+.links{display:flex;gap:32px;font-size:.95rem}
+.links a{position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .25s}
+.links a:hover::after{width:100%}
+.acts{display:flex;align-items:center;gap:12px}
+.cartbtn{position:relative;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.cartbtn svg,.burger svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
+.badge{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--olive);color:#fff;font-size:.72rem;display:grid;place-items:center;padding:0 5px}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:transparent;place-items:center}
+/* HERO v2 */
+.hero2{background:var(--espresso);color:var(--cream);padding:clamp(48px,7vw,96px) 0 clamp(64px,8vw,110px);overflow:hidden;position:relative}
+.hero2::before{content:"";position:absolute;inset:auto -10% -30% auto;width:60%;height:80%;background:radial-gradient(closest-side,rgba(95,106,58,.35),transparent);pointer-events:none}
+.hg{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,80px);align-items:center;position:relative}
+.hero2 h1{font-size:clamp(2.8rem,7.2vw,6.2rem);line-height:.98;max-width:11ch;letter-spacing:-.03em}
+.hero2 p{max-width:44ch;margin:24px 0 32px;color:#d8c9ab;font-size:1.05rem}
+.hero2 .btn.ghost{color:var(--cream);border-color:rgba(244,236,220,.5)}
+.hero2 .btn.ghost:hover{background:var(--cream);color:var(--espresso)}
+.arch{position:relative;width:100%;max-width:440px;justify-self:center}
+.arch .ph{aspect-ratio:4/5.2;border-radius:999px 999px 18px 18px;box-shadow:0 0 0 10px var(--espresso),0 0 0 11px rgba(244,236,220,.35)}
+.badge2{position:absolute;width:118px;height:118px;left:-44px;bottom:48px;animation:spin 24s linear infinite}
+.est{position:absolute;left:-44px;bottom:48px;width:118px;height:118px;display:grid;place-items:center;text-align:center;font:italic 1.05rem/1.1 var(--serif);color:var(--cream);pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* marquee */
+.mq{background:var(--olive);color:var(--cream);overflow:hidden;white-space:nowrap;padding:16px 0}
+.mqt{display:inline-flex;gap:0;animation:mq 32s linear infinite}
+.mqt span{font:1.5rem var(--serif);padding:0 28px;display:inline-flex;align-items:center;gap:56px}
+.mqt span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--sand)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* signature */
+.sig{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sig article .ph{border-radius:999px 999px 14px 14px;aspect-ratio:4/5.2;margin-bottom:16px}
+.sig article{text-align:center}
+.sig article:nth-child(2){margin-top:64px}
+.sig h3{margin-bottom:6px}
+.sig p{color:var(--brown);font-size:.95rem;max-width:30ch;margin:0 auto}
+/* products */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:12px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(43,29,20,.35)}
+.card .ph{aspect-ratio:1/1.1;border-radius:999px 999px 12px 12px;border:0;width:100%;display:block;background-color:var(--sand);padding:0}
+.card .body{display:flex;flex-direction:column;flex:1;padding:18px 8px 6px}
+.card h3{font-size:1.1rem;margin-bottom:4px}
+.card .d{font-size:.9rem;color:var(--brown);flex:1;margin-bottom:14px}
+.card .f{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card .price{font-family:var(--serif);font-size:1.2rem}
+.price{font-weight:600}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tab{padding:9px 20px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:.92rem;transition:.2s}
+.tab:hover{border-color:var(--espresso)}
+.tab[aria-pressed=true]{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+/* seasonal */
+.season{background:var(--olive-d);color:var(--cream);padding:clamp(72px,9vw,130px) 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.split .ph{aspect-ratio:5/4;border-radius:4px}
+.season .ph{aspect-ratio:4/5;max-width:440px;justify-self:center;width:100%;border-radius:999px 999px 18px 18px}
+.split.rev .ph{order:2}
+.season p,.story p{margin:18px 0 26px;max-width:48ch}
+.season p{color:#dfe2cb}
+.season h2{font-size:clamp(2.4rem,5.5vw,4.6rem)}
+.story p{color:var(--brown)}
+.craft{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.craft>div{display:flex;flex-direction:column}
+.craft>div:nth-child(even){margin-top:44px}
+.craft .ph{aspect-ratio:3/4;border-radius:999px 999px 14px 14px;margin-bottom:14px}
+.craft h3{font-size:1.4rem}
+.craft p{font-size:.92rem;color:var(--brown)}
+.bg2{background:var(--beige)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px}
+.gal .ph{border-radius:18px}
+.gal .a{grid-column:span 2;grid-row:span 2;border-radius:260px 18px 18px 18px}
+.gal .b{grid-row:span 2}
+.pair{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pair div{background:var(--card);border-radius:22px;border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:8px}
+.pair small{color:var(--olive);font-weight:600}
+.pair p{color:var(--brown);font-size:.95rem}
+.pair .price{font-family:var(--serif);font-size:1.3rem;margin-top:auto}
+.pair .btn{align-self:flex-start}
+.rev3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev3 blockquote{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;font-family:var(--serif);font-size:1.2rem;line-height:1.45}
+.rev3 blockquote:nth-child(2){background:var(--olive-d);color:var(--cream);border-color:var(--olive-d)}
+.rev3 cite{display:block;margin-top:14px;font:500 .9rem var(--sans);color:var(--brown)}
+.rev3 blockquote:nth-child(2) cite{color:var(--sand)}
+/* NEW: features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(43,29,20,.3)}
+.feat .ic{width:44px;height:44px;border-radius:12px;background:var(--olive);color:var(--cream);display:grid;place-items:center;margin-bottom:6px}
+.feat .ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-size:1.35rem}
+.feat p{color:var(--brown);font-size:.95rem}
+/* NEW: brew methods horizontal snap */
+.brews{display:flex;gap:20px;overflow-x:auto;padding:6px 4px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.brews::-webkit-scrollbar{height:8px}
+.brews::-webkit-scrollbar-thumb{background:var(--sand);border-radius:99px}
+.brew{flex:0 0 280px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.brew .ph{aspect-ratio:4/3;border-radius:0}
+.brew .bb{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.brew h3{font-size:1.25rem}
+.brew p{color:var(--brown);font-size:.92rem;flex:1}
+.brew .tagline{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);font-weight:600}
+/* NEW: origins */
+.origins{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.origin{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4;background:var(--sand)}
+.origin .ph{position:absolute;inset:0}
+.origin .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,18,10,.85),rgba(30,18,10,.1) 55%)}
+.origin .oc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:var(--cream)}
+.origin .kicker{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);font-weight:600}
+.origin h3{font-size:1.6rem;margin:6px 0 6px}
+.origin p{font-size:.9rem;color:#e6dcc4;max-width:32ch}
+.origin .stat{display:flex;gap:14px;margin-top:14px;font-size:.8rem;color:var(--sand);flex-wrap:wrap}
+.origin .stat span{display:inline-flex;align-items:center;gap:6px}
+/* NEW: steps timeline */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;position:relative;counter-increment:step}
+.step::before{content:counter(step,decimal-leading-zero);font:italic 2.4rem var(--serif);color:var(--olive);display:block;margin-bottom:8px;line-height:1}
+.step h3{font-size:1.2rem;margin-bottom:6px}
+.step p{color:var(--brown);font-size:.92rem}
+/* NEW: FAQ */
+.faq{display:grid;gap:10px;max-width:820px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0 22px;transition:box-shadow .2s}
+.faq details[open]{box-shadow:0 12px 26px -18px rgba(43,29,20,.3)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-family:var(--serif);font-size:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:1.6rem/1 var(--sans);color:var(--olive);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 20px;color:var(--brown);font-size:.96rem;max-width:65ch}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.map{aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--beige)}
+.map iframe{width:100%;height:100%;border:0}
+.info dl{display:grid;grid-template-columns:110px 1fr;gap:10px 16px;margin:20px 0 24px;font-size:.95rem}
+.info dt{color:var(--brown)}
+form.box{background:var(--beige);border-radius:22px;padding:28px;display:grid;gap:14px}
+.f2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:500}
+input,select,textarea{width:100%;min-height:46px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--cream)}
+textarea{min-height:96px;resize:vertical}
+.msg{font-size:.9rem;min-height:1.3em}
+.msg.ok{color:var(--olive-d)}.msg.err{color:#9b2c1c}
+.news{background:var(--espresso);color:var(--cream);text-align:center;padding:clamp(72px,9vw,120px) 0}
+.news h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+.news form{display:flex;gap:10px;max-width:520px;margin:28px auto 8px}
+.news input{flex:1;background:transparent;color:var(--cream);border-color:rgba(244,236,220,.4);border-radius:999px;padding:0 20px}
+.news .msg{min-height:1.4em}
+.news .msg.err{color:#f0b3a7}.news .msg.ok{color:#cfd8a8}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.ig .ph{aspect-ratio:1;border-radius:16px}
+footer{background:var(--espresso);color:var(--cream);overflow:hidden;padding:64px 0 0}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;margin-bottom:40px}
+footer h4{font:600 .95rem var(--sans);margin-bottom:12px}
+footer li{list-style:none;margin-bottom:6px;font-size:.92rem;color:#d8c9ab}
+footer li a:hover{color:var(--cream);text-decoration:underline}
+footer p{color:#d8c9ab!important}
+.wm{font:clamp(3.2rem,15.5vw,13rem)/.85 var(--serif);letter-spacing:-.04em;color:var(--olive);margin:8px 0 28px;white-space:nowrap;text-align:center}
+.fb{border-top:1px solid rgba(244,236,220,.2);padding:20px 0 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:#d8c9ab}
+/* NEW: sticky order strip (mobile) */
+.orderstrip{display:none;position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--espresso);color:var(--cream);padding:12px var(--pad);align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -6px 24px -12px rgba(30,18,10,.5)}
+.orderstrip .ostext{font-size:.9rem;color:#d8c9ab}
+.orderstrip .ostext strong{color:var(--cream)}
+/* NEW: floating cart fab (mobile) */
+.fab{display:none;position:fixed;right:18px;bottom:74px;z-index:81;width:54px;height:54px;border-radius:50%;background:var(--olive);color:#fff;border:0;box-shadow:0 10px 24px -10px rgba(70,78,42,.8);place-items:center}
+.fab svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7}
+/* NEW: upsell chips in modal */
+.upsell{margin-top:8px}
+.upsell h4{font:600 .85rem var(--sans);margin-bottom:8px;color:var(--brown);letter-spacing:.02em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 8px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.85rem}
+.chip img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+.chip button{margin-left:2px;width:22px;height:22px;border-radius:50%;border:0;background:var(--espresso);color:var(--cream);font-size:.9rem;line-height:1;display:grid;place-items:center}
+.chip button:hover{background:var(--olive)}
+/* drawer + modal */
+.ov{position:fixed;inset:0;background:rgba(30,18,10,.5);opacity:0;visibility:hidden;transition:.25s;z-index:90}
+.ov.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--cream);z-index:100;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;font-size:1.2rem}
+.dl{flex:1;overflow:auto;padding:8px 24px}
+.li{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.li .ph{width:64px;height:64px;border-radius:12px}
+.li small{display:block;color:var(--brown)}
+.q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-top:6px}
+.q button{width:30px;height:30px;border:0;background:none}
+.q span{min-width:22px;text-align:center;font-size:.9rem}
+.empty{text-align:center;color:var(--brown);padding:48px 0}
+.df{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:12px}
+.tot{display:flex;justify-content:space-between;font-weight:600}
+.modal{position:fixed;left:50%;top:50%;width:min(860px,calc(100% - 32px));max-height:calc(100% - 32px);overflow:auto;background:var(--cream);z-index:110;transform:translate(-50%,-46%);opacity:0;visibility:hidden;transition:.25s;border-radius:22px;display:grid;grid-template-columns:1fr 1fr}
+.modal.on{opacity:1;visibility:visible;transform:translate(-50%,-50%)}
+.modal .ph{min-height:320px}
+.mb{padding:32px;display:grid;gap:14px;align-content:start;position:relative}
+.mb .x{position:absolute;top:12px;right:12px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opts button{padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:none;font-size:.9rem}
+.opts button[aria-pressed=true]{background:var(--olive);color:#fff;border-color:var(--olive)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--espresso);color:var(--cream);padding:12px 22px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:120}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.mnav{display:none}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1020px){.grid4,.craft,.features,.origins,.steps{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:1fr 1fr}.ig{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){
+.links,.acts .btn{display:none}.burger{display:grid}
+.mnav{display:block;position:fixed;top:0;left:0;right:0;background:var(--cream);z-index:95;padding:96px var(--pad) 32px;transform:translateY(-100%);transition:transform .3s;border-bottom:1px solid var(--line)}
+.mnav.on{transform:none}
+.mnav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.4rem}
+header{z-index:96}
+.hg{grid-template-columns:1fr}.arch{max-width:340px;margin:16px auto 0}.badge2,.est{left:-14px}
+.sig,.pair,.rev3,.split,.visit,.modal{grid-template-columns:1fr}
+.sig article:nth-child(2){margin-top:0}
+.split.rev .ph{order:0}
+.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.gal .a{grid-column:span 2}
+.craft>div:nth-child(even){margin-top:0}
+.modal .ph{min-height:240px}
+.orderstrip{display:flex}
+.fab{display:grid}
+body{padding-bottom:72px}
+}
+@media(max-width:560px){.grid4,.craft,.features,.origins,.steps{grid-template-columns:1fr}.f2{grid-template-columns:1fr}.news form{flex-direction:column}.fg{grid-template-columns:1fr}.head{margin-bottom:28px}.hero2 h1{font-size:2.8rem}.mqt span{font-size:1.2rem;gap:40px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}.badge2,.mqt{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="ann">New this week: Cardamom Cortado and Almond Croissant. Order ahead for pickup in 10 minutes.</div>
+<header>
+<div class="wrap nav">
+<a href="#top" class="logo" aria-label="Ember & Oak home">Ember &amp; Oak</a>
+<nav class="links" aria-label="Main">
+<a href="#top">Home</a><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#craft">Coffee &amp; More</a><a href="#gallery">Gallery</a><a href="#visit">Visit Us</a>
+</nav>
+<div class="acts">
+<a href="#bestsellers" class="btn sm">Order Now</a>
+<button class="cartbtn" id="cartOpen" aria-label="Open cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" id="count">0</span></button>
+<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button>
+</div>
+</div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobile">
+<a href="#top">Home</a><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#craft">Coffee &amp; More</a><a href="#gallery">Gallery</a><a href="#visit">Visit Us</a><a href="#bestsellers">Order Now</a>
+</nav>
+
+<main id="top">
+<section class="hero2">
+<div class="wrap hg">
+<div>
+<h1>Coffee roasted slowly, poured with care.</h1>
+<p>A neighbourhood roastery in Indiranagar serving single-origin espresso, filter coffee and pastries baked every morning.</p>
+<div class="row"><a href="#menu" class="btn light">View Menu</a><a href="#bestsellers" class="btn ghost">Order Now</a></div>
+</div>
+<div class="arch">
+<div class="ph"><img data-i="hero" alt="Barista pouring latte art at a wooden coffee bar" fetchpriority="high"></div>
+<svg class="badge2" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cp" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><circle cx="60" cy="60" r="58" fill="#5f6a3a"/><text font-size="10.5" fill="#f6f0e4" font-family="DM Sans,sans-serif" letter-spacing="2"><textPath href="#cp">Roasted in-house, baked daily, poured fresh, </textPath></text></svg>
+<span class="est">Since<br>2019</span>
+</div>
+</div>
+</section>
+<div class="mq" aria-hidden="true"><div class="mqt"><span>Espresso</span><span>Cappuccino</span><span>Flat White</span><span>Cold Brew</span><span>Matcha</span><span>Croissants</span><span>Espresso</span><span>Cappuccino</span><span>Flat White</span><span>Cold Brew</span><span>Matcha</span><span>Croissants</span></div></div>
+
+<!-- NEW: features / why us -->
+<section>
+<div class="wrap">
+<div class="head"><h2>Why our regulars stay</h2><p>Three things we refuse to compromise on — no matter how busy the bar gets.</p></div>
+<div class="features">
+<div class="feat">
+<div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V8l6-4 6 4v12"/><path d="M4 20h16"/><path d="M9 20v-5h4v5"/></svg></div>
+<h3>Roasted in small batches</h3>
+<p>We roast weekly in a 5&nbsp;kg drum so every bag lands on the bar within days, not months.</p>
+</div>
+<div class="feat">
+<div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v4"/><circle cx="12" cy="13" r="6"/><path d="M9 13h6"/></svg></div>
+<h3>Baked before sunrise</h3>
+<p>Croissants, banana bread and tarts come out of the oven before the first espresso is dialled in.</p>
+</div>
+<div class="feat">
+<div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V3"/><path d="M6 3v18"/><path d="M18 3v18"/><path d="M6 12h12"/></svg></div>
+<h3>Direct from the farm</h3>
+<p>We buy from estates we've visited in Chikmagalur and Coorg and pay above the commodity rate.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="head"><h2>Signature drinks</h2><p>Six pours we make better than anything else, built on beans from Chikmagalur and Coorg estates.</p></div>
+<div class="sig" id="sig"></div>
+</div>
+</section>
+
+<section class="bg2" id="bestsellers">
+<div class="wrap">
+<div class="head"><h2>Bestsellers</h2><p>The orders our regulars come back for. Tap any item to customise it.</p></div>
+<div class="grid4" id="best"></div>
+</div>
+</section>
+
+<section id="menu">
+<div class="wrap">
+<div class="head"><h2>Explore our menu</h2><p>Everything is made to order. Prices include GST.</p></div>
+<div class="tabs" id="tabs" role="group" aria-label="Menu categories"></div>
+<div class="grid4" id="menuGrid"></div>
+</div>
+</section>
+
+<!-- NEW: brew methods -->
+<section class="bg2">
+<div class="wrap">
+<div class="head"><h2>Brew methods we love</h2><p>Each method pulls a different side out of the same beans. Swipe across to compare.</p></div>
+<div class="brews">
+<article class="brew"><div class="ph"><img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=max&w=960&q=90" alt="Espresso machine pulling a shot" loading="lazy"></div><div class="bb"><span class="tagline">28 seconds</span><h3>Espresso</h3><p>Concentrated, syrupy, and the base of every milk drink on the bar.</p><button class="btn ghost sm" data-add="espresso">Add espresso</button></div></article>
+<article class="brew"><div class="ph"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=max&w=960&q=90" alt="Pour-over coffee being brewed" loading="lazy"></div><div class="bb"><span class="tagline">3 minutes</span><h3>V60 pour-over</h3><p>Bright, clean and floral — the method we reach for single origins.</p><button class="btn ghost sm" data-add="cold">Try cold brew</button></div></article>
+<article class="brew"><div class="ph"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=max&w=960&q=90" alt="Cold brew coffee over ice" loading="lazy"></div><div class="bb"><span class="tagline">18 hours</span><h3>Cold brew</h3><p>Slow-steeped, low-acid and made for Bengaluru's afternoons.</p><button class="btn ghost sm" data-add="cold">Add cold brew</button></div></article>
+<article class="brew"><div class="ph"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=max&w=960&q=90" alt="Cappuccino with foam art" loading="lazy"></div><div class="bb"><span class="tagline">Steamed to order</span><h3>Cappuccino</h3><p>Equal thirds — espresso, milk, foam — in a 5&nbsp;oz cup.</p><button class="btn ghost sm" data-add="cap">Add cappuccino</button></div></article>
+<article class="brew"><div class="ph"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=max&w=960&q=90" alt="Matcha whisked with milk" loading="lazy"></div><div class="bb"><span class="tagline">Whisked by hand</span><h3>Matcha</h3><p>Ceremonial grade matcha whisked to a fine foam, milk optional.</p><button class="btn ghost sm" data-add="matcha">Add matcha</button></div></article>
+</div>
+</div>
+</section>
+
+<section class="season">
+<div class="wrap split">
+<div>
+<h2>Cardamom cortado, back for monsoon season</h2>
+<p>Espresso, warm milk and freshly crushed green cardamom, served small and strong. Available until the end of November, alongside our spiced jaggery cold brew.</p>
+<button class="btn light" data-add="cortado">Add to cart</button>
+</div>
+<div class="ph z"><img data-i="season" alt="Small cortado in a ceramic cup on a wooden table"></div>
+</div>
+</section>
+
+<section id="craft">
+<div class="wrap">
+<div class="head"><h2>Coffee craft</h2><p>From green bean to cup, every step is done by people who taste what they make.</p></div>
+<div class="craft">
+<div class="zoom"><div class="ph"><img data-i="c1" alt="Espresso pouring from a portafilter"></div><h3>Espresso</h3><p>Dialled in daily to a 1:2 ratio in about 28 seconds.</p></div>
+<div class="zoom"><div class="ph"><img data-i="c2" alt="Latte art rosetta in a white cup"></div><h3>Latte art</h3><p>Silky microfoam, steamed to order, poured by hand.</p></div>
+<div class="zoom"><div class="ph"><img data-i="c3" alt="Roasted coffee beans in a scoop"></div><h3>Bean selection</h3><p>Small-lot Indian arabica, roasted weekly in-house.</p></div>
+<div class="zoom"><div class="ph"><img data-i="c4" alt="Barista preparing coffee at the bar"></div><h3>The barista bar</h3><p>Sit at the bar and ask us anything about what is in your cup.</p></div>
+</div>
+</div>
+</section>
+
+<!-- NEW: origins -->
+<section class="bg2">
+<div class="wrap">
+<div class="head"><h2>Meet the beans</h2><p>Three estates we buy from every season — each with a taste you can point to on the map.</p></div>
+<div class="origins">
+<article class="origin">
+<div class="ph"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=max&w=1400&q=90" alt="Coffee cherries on a branch" loading="lazy"></div>
+<div class="oc"><span class="kicker">Chikmagalur · 1,100 m</span><h3>Ratnagiri Estate</h3><p>Washed arabica with notes of jaggery, orange peel and a clean, tea-like finish.</p><div class="stat"><span>Filter</span><span>Espresso</span><span>House blend</span></div></div>
+</article>
+<article class="origin">
+<div class="ph"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=max&w=1400&q=90" alt="Coffee beans drying on a bed" loading="lazy"></div>
+<div class="oc"><span class="kicker">Coorg · 950 m</span><h3>Kalledeverapura</h3><p>Natural process with deep plum, dark chocolate and a rounded, syrupy body.</p><div class="stat"><span>Espresso</span><span>Milk drinks</span></div></div>
+</article>
+<article class="origin">
+<div class="ph"><img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=max&w=1400&q=90" alt="Roasted coffee beans in a scoop" loading="lazy"></div>
+<div class="oc"><span class="kicker">Wayanad · 1,300 m</span><h3>Thrikkade</h3><p>Honey process with stone fruit, honeycomb and a long, sweet finish.</p><div class="stat"><span>Filter</span><span>Guest roast</span></div></div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- NEW: how we work -->
+<section>
+<div class="wrap">
+<div class="head"><h2>How we work</h2><p>Four steps, repeated every morning before the doors open.</p></div>
+<div class="steps">
+<div class="step"><h3>Buy the lot</h3><p>We cup samples blind, then commit to the lots we love for the season.</p></div>
+<div class="step"><h3>Roast weekly</h3><p>Small 5&nbsp;kg batches, profiled and logged for every origin on the bar.</p></div>
+<div class="step"><h3>Dial in daily</h3><p>Espresso is re-dialled every morning against the day's humidity and age of the roast.</p></div>
+<div class="step"><h3>Pour with care</h3><p>Every milk drink is steamed to order and poured by hand, never batch-made.</p></div>
+</div>
+</div>
+</section>
+
+<section class="bg2" id="story">
+<div class="wrap split rev">
+<div class="ph z"><img data-i="story" alt="Warm café interior with wooden tables and plants"></div>
+<div>
+<h2>A small roastery with a long memory</h2>
+<p>Ember &amp; Oak began in 2019 as a two-table counter beside a roasting drum. We still roast in small batches, still bake before sunrise, and still know most of our guests by their order.</p>
+<p>Our rule is simple: buy fairly from the farms we visit, brew with patience, and keep the room warm enough that people stay a little longer than planned.</p>
+<a href="#visit" class="btn ghost">Plan a visit</a>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="wrap">
+<div class="head"><h2>Inside the café</h2><p>Oak counters, a quiet window seat and a bar built for watching the espresso machine work.</p></div>
+<div class="gal">
+<div class="ph a z"><img data-i="g1" alt="Café interior with seating and large windows"></div>
+<div class="ph z"><img data-i="g2" alt="Coffee bar with espresso machine"></div>
+<div class="ph b z"><img data-i="g3" alt="Customer enjoying coffee at a table"></div>
+<div class="ph z"><img data-i="g4" alt="Pour-over coffee being prepared"></div>
+<div class="ph z"><img data-i="g5" alt="Pastries on a counter"></div>
+<div class="ph z"><img data-i="g6" alt="Cosy café seating area"></div>
+</div>
+</div>
+</section>
+
+<section class="bg2">
+<div class="wrap">
+<div class="head"><h2>Coffee and food pairings</h2><p>Combinations our baristas and bakers settled on after a lot of tasting.</p></div>
+<div class="pair">
+<div><small>Flat White + Almond Croissant</small><h3>Rich and buttery</h3><p>Sweet almond paste softens the espresso's dark chocolate notes.</p><span class="price">₹ 420</span><button class="btn ghost sm" data-add="flat,croissant">Add both</button></div>
+<div><small>Cold Brew + Banana Bread</small><h3>Slow and mellow</h3><p>Low-acid cold brew against warm, caramelised banana.</p><span class="price">₹ 400</span><button class="btn ghost sm" data-add="cold,banana">Add both</button></div>
+<div><small>Matcha Latte + Lemon Tart</small><h3>Green and bright</h3><p>Earthy ceremonial matcha balanced by a sharp, buttery tart.</p><span class="price">₹ 460</span><button class="btn ghost sm" data-add="matcha,tart">Add both</button></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="head"><h2>Words from our guests</h2></div>
+<div class="rev3">
+<blockquote>The flat white is the best I have had in Bengaluru, and the croissants are gone by ten.<cite>Ananya R., regular</cite></blockquote>
+<blockquote>Quiet in the afternoons, friendly staff, and they actually explain the beans. My weekend spot.<cite>Karthik M., weekend visitor</cite></blockquote>
+<blockquote>Ordered ahead, walked in, picked up. Everything was hot and on time.<cite>Meera S., pickup order</cite></blockquote>
+</div>
+</div>
+</section>
+
+<!-- NEW: FAQ -->
+<section class="bg2">
+<div class="wrap">
+<div class="head" style="justify-content:center;text-align:center;border-bottom:0"><h2>Questions we get a lot</h2></div>
+<div class="faq">
+<details open><summary>Do you take reservations?</summary><p>Yes — use the form below, or call us. We hold tables for 15 minutes past the booking time before releasing them.</p></details>
+<details><summary>Can I order ahead for pickup?</summary><p>Yes. Add items to the cart and pick "Order Now" — during the demo this is simulated, but the flow matches what we run in-store.</p></details>
+<details><summary>Do you have dairy-free milks?</summary><p>Oat and almond are available for every milk drink for a small upcharge. Soy is available on request.</p></details>
+<details><summary>Is there wifi and plug points?</summary><p>Yes, both. We just ask that laptops go away at peak brunch hours on weekends so tables stay available.</p></details>
+<details><summary>Can I buy beans to take home?</summary><p>250&nbsp;g bags of every origin on the bar are available at the counter, roasted within the last seven days.</p></details>
+</div>
+</div>
+</section>
+
+<section id="visit">
+<div class="wrap">
+<div class="head"><h2>Visit our café</h2><p>Find us on 12th Main, Indiranagar. Reserve a table or just walk in.</p></div>
+<div class="visit">
+<div>
+<div class="map"><iframe title="Map of Indiranagar, Bengaluru" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=77.6330%2C12.9700%2C77.6500%2C12.9830&amp;layer=mapnik&amp;marker=12.9784%2C77.6408"></iframe></div>
+<div class="info">
+<dl><dt>Address</dt><dd>14, 12th Main Road, Indiranagar, Bengaluru 560038</dd><dt>Hours</dt><dd>Mon–Fri 7:30 am – 10 pm<br>Sat–Sun 8 am – 11 pm</dd><dt>Phone</dt><dd><a href="tel:+918000000000">+91 80000 00000</a></dd><dt>Email</dt><dd><a href="mailto:hello@emberandoak.example">hello@emberandoak.example</a></dd></dl>
+<a class="btn ghost" target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?to=12.9784%2C77.6408">Get directions</a>
+</div>
+</div>
+<div style="display:grid;gap:24px">
+<form class="box" id="resForm" novalidate>
+<h3>Reserve a table</h3>
+<div class="f2">
+<label>Date<input type="date" id="rd" required></label>
+<label>Time<select id="rt" required><option value="">Select</option></select></label>
+<label>Guests<select id="rg" required></select></label>
+</div>
+<label>Name<input id="rn" required autocomplete="name"></label>
+<label>Phone<input id="rp" type="tel" required autocomplete="tel"></label>
+<button class="btn" type="submit">Request reservation</button>
+<p class="msg" id="rm" role="status"></p>
+</form>
+<form class="box" id="conForm" novalidate>
+<h3>Send us a message</h3>
+<label>Email<input id="ce" type="email" required autocomplete="email"></label>
+<label>Message<textarea id="cm" required></textarea></label>
+<button class="btn ghost" type="submit">Send message</button>
+<p class="msg" id="cmsg" role="status"></p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section class="news">
+<div class="wrap">
+<h2>New drinks, first</h2>
+<p class="lede" style="margin:12px auto 0;color:#d8c9ab">One email a month about new menus, events and seasonal offers.</p>
+<form id="newsForm" novalidate><input type="email" id="ne" placeholder="you@example.com" aria-label="Email address"><button class="btn light" type="submit">Subscribe</button></form>
+<p class="msg" id="nm" role="status"></p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="head"><h2>@emberandoak</h2><p>Mornings, pours and pastries from the café floor.</p></div>
+<div class="ig" id="ig"></div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="fg">
+<div><div class="logo" style="margin-bottom:12px">Ember &amp; Oak</div><p style="max-width:30ch;font-size:.92rem">Specialty coffee roasters and café, Indiranagar, Bengaluru.</p></div>
+<div><h4>Explore</h4><ul><li><a href="#menu">Menu</a></li><li><a href="#story">Our Story</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#visit">Visit Us</a></li></ul></div>
+<div><h4>Hours</h4><ul><li>Mon–Fri 7:30 am – 10 pm</li><li>Sat–Sun 8 am – 11 pm</li></ul></div>
+<div><h4>Contact</h4><ul><li>14, 12th Main, Indiranagar</li><li><a href="tel:+918000000000">+91 80000 00000</a></li><li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+</div>
+<div class="wm" aria-hidden="true">Ember &amp; Oak</div>
+<div class="fb"><span>© 2026 Ember &amp; Oak. Demo website: orders and bookings are not real.</span><span><a href="#top">Privacy</a> · <a href="#top">Terms</a></span></div>
+</div>
+</footer>
+
+<!-- NEW: mobile sticky order strip + fab -->
+<div class="orderstrip" id="ostrip" aria-hidden="true">
+<span class="ostext"><strong id="oscount">0 items</strong> in your cart</span>
+<button class="btn light sm" id="osbtn">Open cart</button>
+</div>
+<button class="fab" id="fab" aria-label="Open cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+<div class="dh"><h3>Your cart</h3><button class="x" id="cartClose" aria-label="Close cart">&times;</button></div>
+<div class="dl" id="dl"></div>
+<div class="df"><div class="tot"><span>Subtotal</span><span id="sub">₹ 0</span></div><button class="btn" id="checkout">Checkout (demo)</button><p class="msg" id="cm2" role="status"></p></div>
+</aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+<div class="ph"><img id="mi" alt=""></div>
+<div class="mb"><button class="x" id="mx" aria-label="Close">&times;</button><h3 id="mt" style="font-size:1.8rem"></h3><p id="md" style="color:var(--brown)"></p><div id="mo" style="display:grid;gap:14px"></div><div class="upsell" id="upsell"></div><div class="f" style="display:flex;justify-content:space-between;align-items:center"><span class="price" id="mp"></span><button class="btn" id="ma">Add to cart</button></div></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+/* ---- 4K-tier image pipeline (highest quality Unsplash CDN renditions) ---- */
+const WIDTHS=[640,960,1280,1600,1920,2560,3200,3840];
+const Q=90;
+const U=(id,w=3840)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=max&w=${w}&q=${Q}`;
+const S=id=>WIDTHS.map(w=>`${U(id,w)} ${w}w`).join(', ');
+const SZ='(max-width:820px) 100vw, (max-width:1020px) 50vw, 1200px';
+const IMG={hero:'1442512595331-e89e73853f31',season:'1514432324607-a09d9b4aefdd',c1:'1510707577719-ae7c14805e3a',c2:'1534778101976-62847782c213',c3:'1447933601403-0c6688de566e',c4:'1445116572660-236099ec97a0',story:'1501339847302-ac426a4a7cbb',g1:'1554118811-1e0d58224f24',g2:'1521017432531-fbd92d768814',g3:'1511920170033-f8396924c348',g4:'1495474472287-4d71bcdd2085',g5:'1555507036-ab1f4038808a',g6:'1559925393-8be0ec4767c8',i1:'1509042239860-f550ce710b93',i2:'1461023058943-07fcbe16d735',i3:'1578985545062-69928b1d9587',i4:'1497935586351-b67a49e012bf',i5:'1515823064-d6e0c04616a7',i6:'1459755486867-b55449bb39ff'};
+const P=[
+{id:'espresso',n:'Espresso',c:'Coffee',p:140,i:'1510707577719-ae7c14805e3a',d:'Double shot of our house blend with notes of dark chocolate and orange peel.',m:1},
+{id:'cap',n:'Cappuccino',c:'Coffee',p:210,i:'1534778101976-62847782c213',d:'Equal parts espresso, steamed milk and dense foam.',m:1},
+{id:'flat',n:'Flat White',c:'Coffee',p:230,i:'1442512595331-e89e73853f31',d:'Double ristretto with velvety microfoam. Our most ordered drink.',m:1},
+{id:'cortado',n:'Cardamom Cortado',c:'Coffee',p:220,i:'1514432324607-a09d9b4aefdd',d:'Espresso and warm milk with fresh cardamom. Seasonal.',m:1},
+{id:'cold',n:'Cold Brew',c:'Iced',p:240,i:'1461023058943-07fcbe16d735',d:'Steeped for 18 hours, served over clear ice.',m:1},
+{id:'iced',n:'Iced Latte',c:'Iced',p:230,i:'1517701604599-bb29b565090c',d:'Double espresso poured over cold milk and ice.',m:1},
+{id:'chai',n:'Masala Chai',c:'Tea',p:160,i:'1571934811356-5cc061b6821f',d:'Assam leaf simmered with ginger, cardamom and cloves.'},
+{id:'earl',n:'Earl Grey',c:'Tea',p:170,i:'1544787219-7f47ccb76574',d:'Loose-leaf black tea with bergamot, served in a pot.'},
+{id:'matcha',n:'Matcha Latte',c:'Matcha',p:260,i:'1515823064-d6e0c04616a7',d:'Ceremonial grade matcha whisked with milk of your choice.',m:1},
+{id:'croissant',n:'Almond Croissant',c:'Pastries',p:190,i:'1555507036-ab1f4038808a',d:'Twice-baked with almond frangipane and toasted flakes.'},
+{id:'pain',n:'Pain au Chocolat',c:'Pastries',p:180,i:'1530610476181-d83430b64dcd',d:'Laminated dough around two bars of dark chocolate.'},
+{id:'banana',n:'Banana Bread',c:'Desserts',p:160,i:'1605090293891-8ab1e5dcb1c3',d:'Brown butter loaf with walnuts, served warm.'},
+{id:'tart',n:'Lemon Tart',c:'Desserts',p:200,i:'1519915028121-7d3463d20b13',d:'Sweet pastry shell with a sharp lemon curd.'},
+{id:'toast',n:'Avocado Toast',c:'Light Bites',p:340,i:'1541519227354-08fa5d50c44d',d:'Sourdough, smashed avocado, chilli flakes and a soft egg.'}
+];
+const get=id=>P.find(p=>p.id===id),$=s=>document.querySelector(s),fmt=n=>'₹ '+n.toLocaleString('en-IN');
+const FB=(el)=>{el.style.display='none'};
+const img=(i,alt,cls='')=>`<div class="ph ${cls}"><img src="${U(i,1920)}" srcset="${S(i)}" sizes="${SZ}" alt="${alt}" loading="lazy" decoding="async" onerror="this.style.display='none'"></div>`;
+document.querySelectorAll('img[data-i]').forEach(e=>{const k=IMG[e.dataset.i],h=e.dataset.i==='hero';e.sizes=h?'100vw':SZ;e.srcset=S(k);e.src=U(k,h?3840:1920);e.decoding='async';e.onerror=()=>FB(e)});
+$('#ig').innerHTML=['i1','i2','i3','i4','i5','i6'].map(k=>img(IMG[k],'Café photo','z')).join('');
+$('#sig').innerHTML=['espresso','cap','flat','cold','matcha','cortado'].slice(0,3).map(id=>{const p=get(id);return `<article class="zoom">${img(p.i,p.n)}<h3>${p.n}</h3><p>${p.d}</p></article>`}).join('');
+const card=p=>`<article class="card zoom"><button class="ph" data-open="${p.id}" aria-label="View ${p.n}"><img src="${U(p.i,1280)}" srcset="${S(p.i)}" sizes="(max-width:560px) 100vw, (max-width:1020px) 50vw, 300px" alt="${p.n}" loading="lazy" decoding="async" onerror="this.style.display='none'"></button><div class="body"><h3>${p.n}</h3><p class="d">${p.d}</p><div class="f"><span class="price">${fmt(p.p)}</span><button class="btn sm" data-open="${p.id}">Add</button></div></div></article>`;
+$('#best').innerHTML=['flat','cold','croissant','matcha'].map(id=>card(get(id))).join('');
+const cats=['All',...new Set(P.map(p=>p.c))];
+$('#tabs').innerHTML=cats.map((c,i)=>`<button class="tab" aria-pressed="${i==0}" data-cat="${c}">${c}</button>`).join('');
+const renderMenu=c=>{$('#menuGrid').innerHTML=P.filter(p=>c==='All'||p.c===c).map(card).join('')};
+renderMenu('All');
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed',t===b));renderMenu(b.dataset.cat)});
+/* cart */
+let cart=[];try{cart=JSON.parse(sessionStorage.getItem('eo-cart')||'[]')}catch(e){}
+const save=()=>{try{sessionStorage.setItem('eo-cart',JSON.stringify(cart))}catch(e){}};
+const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2000)};
+const add=(id,opt='',price)=>{const p=get(id);if(!p)return;const k=id+'|'+opt,ex=cart.find(x=>x.k===k);ex?ex.q++:cart.push({k,id,opt,price:price||p.p,q:1});save();draw();toast(p.n+' added to cart')};
+function draw(){
+const n=cart.reduce((a,b)=>a+b.q,0);$('#count').textContent=n;$('#count').style.display=n?'grid':'none';
+const osc=$('#oscount');if(osc)osc.textContent=n+' item'+(n===1?'':'s');
+$('#sub').textContent=fmt(cart.reduce((a,b)=>a+b.q*b.price,0));
+$('#dl').innerHTML=cart.length?cart.map((x,i)=>{const p=get(x.id);return `<div class="li">${img(p.i,p.n)}<div><strong>${p.n}</strong><small>${x.opt||'Standard'}</small><div class="q"><button data-q="${i}" data-d="-1" aria-label="Decrease">−</button><span>${x.q}</span><button data-q="${i}" data-d="1" aria-label="Increase">+</button></div></div><span class="price">${fmt(x.price*x.q)}</span></div>`}).join(''):'<p class="empty">Your cart is empty.<br>Add a drink or pastry to get started.</p>';
+$('#checkout').disabled=!cart.length}
+$('#dl').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;const i=+b.dataset.q;cart[i].q+=+b.dataset.d;if(cart[i].q<1)cart.splice(i,1);save();draw()});
+const ov=$('#ov');let last;
+const openD=n=>{last=document.activeElement;ov.classList.add('on');n.classList.add('on');n.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'};
+const closeAll=()=>{ov.classList.remove('on');$('#drawer').classList.remove('on');$('#modal').classList.remove('on');document.body.style.overflow='';last&&last.focus&&last.focus()};
+$('#cartOpen').onclick=()=>{$('#cm2').textContent='';openD($('#drawer'))};
+$('#osbtn').onclick=()=>{$('#cm2').textContent='';openD($('#drawer'))};
+$('#fab').onclick=()=>{$('#cm2').textContent='';openD($('#drawer'))};
+$('#cartClose').onclick=$('#mx').onclick=closeAll;ov.onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();menu(false)}});
+$('#checkout').onclick=()=>{const m=$('#cm2');m.className='msg ok';m.textContent='Demo checkout complete. No payment was taken and no order was placed.';cart=[];save();draw()};
+document.addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){a.dataset.add.split(',').forEach(id=>add(id));return}
+const o=e.target.closest('[data-open]');if(o)openP(o.dataset.open)});
+/* product modal */
+let cur,sel;
+const UP={espresso:['croissant','banana'],cap:['croissant','pain'],flat:['croissant','banana'],cortado:['croissant','banana'],cold:['banana','tart'],iced:['croissant','tart'],matcha:['tart','banana'],chai:['banana','croissant'],earl:['pain','croissant']};
+function openP(id){cur=get(id);sel={size:'Regular',milk:'Whole milk'};
+$('#mi').srcset=S(cur.i);$('#mi').sizes='(max-width:820px) 100vw, 430px';$('#mi').src=U(cur.i,1920);$('#mi').alt=cur.n;$('#mt').textContent=cur.n;$('#md').textContent=cur.d;
+$('#mo').innerHTML=cur.m?`<div><small>Size</small><div class="opts" data-g="size">${['Regular','Large (+₹ 40)'].map((s,i)=>`<button aria-pressed="${!i}">${s}</button>`).join('')}</div></div><div><small>Milk</small><div class="opts" data-g="milk">${['Whole milk','Oat milk (+₹ 30)','Almond milk (+₹ 30)'].map((s,i)=>`<button aria-pressed="${!i}">${s}</button>`).join('')}</div></div>`:'';
+const ups=UP[cur.id]||[];
+$('#upsell').innerHTML=ups.length?`<h4>Goes well with</h4><div class="chips">${ups.map(id=>{const p=get(id);return `<span class="chip"><img src="${U(p.i,120)}" alt=""><span>${p.n}</span><button data-upsell="${p.id}" aria-label="Add ${p.n}">+</button></span>`}).join('')}</div>`:'';
+upd();openD($('#modal'))}
+function price(){let p=cur.p;if(sel.size.includes('Large'))p+=40;if(/\+/.test(sel.milk))p+=30;return p}
+function upd(){$('#mp').textContent=fmt(price())}
+$('#mo').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=b.parentElement;if(!g.dataset.g)return;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));sel[g.dataset.g]=b.textContent;upd()});
+$('#upsell').addEventListener('click',e=>{const b=e.target.closest('[data-upsell]');if(!b)return;add(b.dataset.upsell);});
+$('#ma').onclick=()=>{add(cur.id,cur.m?`${sel.size.replace(/ \(.*/,'')}, ${sel.milk.replace(/ \(.*/,'')}`:'',price());closeAll()};
+/* mobile menu */
+const menu=o=>{$('#mnav').classList.toggle('on',o);$('#burger').setAttribute('aria-expanded',o)};
+$('#burger').onclick=()=>menu(!$('#mnav').classList.contains('on'));
+$('#mnav').addEventListener('click',e=>{if(e.target.closest('a'))menu(false)});
+/* forms */
+const say=(el,t,ok)=>{el.textContent=t;el.className='msg '+(ok?'ok':'err')};
+const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+$('#newsForm').onsubmit=e=>{e.preventDefault();re.test($('#ne').value.trim())?(say($('#nm'),'Thanks, you are subscribed (demo).',1),e.target.reset()):say($('#nm'),'Enter a valid email address, such as you@example.com.')};
+$('#conForm').onsubmit=e=>{e.preventDefault();if(!re.test($('#ce').value.trim()))return say($('#cmsg'),'Enter a valid email address.');if($('#cm').value.trim().length<5)return say($('#cmsg'),'Write a message of at least 5 characters.');say($('#cmsg'),'Message sent (demo). We reply within one working day.',1);e.target.reset()};
+const t=new Date(),iso=new Date(t-t.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+$('#rd').min=iso;$('#rd').value=iso;
+const slots=[];for(let h=8;h<=21;h++)['00','30'].forEach(m=>slots.push(`${h>12?h-12:h}:${m} ${h>=12?'pm':'am'}`));
+$('#rt').innerHTML+=slots.map(s=>`<option>${s}</option>`).join('');
+$('#rg').innerHTML=[1,2,3,4,5,6,7,8].map(n=>`<option value="${n}"${n==2?' selected':''}>${n}</option>`).join('');
+$('#resForm').onsubmit=e=>{e.preventDefault();const m=$('#rm');
+if(!$('#rd').value||$('#rd').value<iso)return say(m,'Choose today or a future date.');
+if(!$('#rt').value)return say(m,'Choose a time.');
+if($('#rn').value.trim().length<2)return say(m,'Enter your name.');
+if(!/^[+\d][\d\s-]{7,14}$/.test($('#rp').value.trim()))return say(m,'Enter a valid phone number.');
+say(m,`Request noted for ${$('#rg').value} on ${$('#rd').value} at ${$('#rt').value} (demo, no booking made).`,1)};
+/* reveal-on-scroll heads */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver'in window){
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.head').forEach(h=>{h.classList.add('rv');io.observe(h)})}
+draw();
+})();
+</script>
+</body>
+</html>

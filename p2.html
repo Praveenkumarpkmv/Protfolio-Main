@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen & Loom Events | Bespoke Weddings, Launches & Corporate Events in Bengaluru</title>
+<meta name="description" content="A boutique event studio in Bengaluru designing weddings, brand launches and corporate gatherings. Full-service planning, styling and on-the-day production.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12122b;--ink-2:#1e1e46;--coral:#ff5a4e;--coral-d:#d63f36;
+  --gold:#e9b949;--gold-d:#c99a2e;--paper:#faf6ef;--paper-2:#f1eade;
+  --line:rgba(18,18,43,.14);--muted:#5b5b72;
+  --serif:'Bricolage Grotesque',Georgia,serif;
+  --serif-it:'Instrument Serif',Georgia,serif;
+  --sans:'Instrument Sans',system-ui,sans-serif;
+  --w:1240px;--pad:clamp(20px,4vw,56px);--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;position:relative}
+/* grain texture + soft glow */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.17 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad);position:relative;z-index:2}
+section{padding:clamp(64px,9vw,120px) 0;position:relative}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,7vw,5.6rem)}
+h2{font-size:clamp(2rem,4.6vw,3.6rem)}
+h3{font-size:1.3rem}
+em, .ital{font-family:var(--serif-it);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-d)}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--coral)}
+.lede{max-width:56ch;color:var(--muted);font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 28px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:600;transition:transform .2s,background .2s,color .2s,box-shadow .2s;position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.btn:hover::after{transform:translateX(120%)}
+.btn:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-2px);box-shadow:0 14px 26px -14px rgba(255,90,78,.7)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.coral{background:var(--coral);border-color:var(--coral)}
+.btn.coral:hover{background:var(--coral-d);border-color:var(--coral-d)}
+.btn.sm{min-height:42px;padding:0 20px;font-size:.9rem}
+.ph{background:linear-gradient(135deg,var(--paper-2),#d9cfba);overflow:hidden;position:relative}
+.ph img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.zoom:hover .ph img{transform:scale(1.07)}
+
+/* top bar */
+.topbar{background:var(--ink);color:var(--paper);font-size:.82rem;padding:8px 0;position:relative;z-index:2}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.topbar a{color:var(--gold)}
+.topbar a:hover{text-decoration:underline}
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(250,246,239,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,90,78,.2)}
+.links{display:flex;gap:28px;font-size:.95rem;font-weight:500}
+.links a{position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--coral);transition:width .25s}
+.links a:hover::after{width:100%}
+.acts{display:flex;align-items:center;gap:10px}
+.iconbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.iconbtn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7}
+.burger{display:none}
+/* side rail */
+.rail{display:none}
+@media(min-width:1500px){
+  .rail{display:flex;position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:55;flex-direction:column;gap:14px}
+  .rail a{width:10px;height:10px;border-radius:50%;background:var(--line);transition:.25s;position:relative}
+  .rail a::after{content:attr(data-label);position:absolute;left:22px;top:50%;transform:translateY(-50%) scale(.9);opacity:0;background:var(--ink);color:var(--paper);font-size:.72rem;padding:4px 10px;border-radius:6px;white-space:nowrap;pointer-events:none;transition:.2s}
+  .rail a:hover::after,.rail a.active::after{opacity:1;transform:translateY(-50%) scale(1)}
+  .rail a.active{background:var(--coral);box-shadow:0 0 0 4px rgba(255,90,78,.2)}
+}
+
+/* hero */
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(56px,8vw,100px);overflow:hidden;position:relative;background:
+  radial-gradient(1200px 600px at 90% -10%,rgba(233,185,73,.28),transparent 60%),
+  radial-gradient(900px 500px at -10% 110%,rgba(255,90,78,.18),transparent 60%),var(--paper)}
+.hero .glow{position:absolute;width:520px;height:520px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,90,78,.35),transparent 70%);
+  left:var(--mx,50%);top:var(--my,50%);transform:translate(-50%,-50%);transition:left .3s,top .3s;z-index:0;opacity:.55;filter:blur(30px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,80px);align-items:center;position:relative;z-index:2}
+.hero h1{margin:18px 0 22px;max-width:14ch}
+.hero h1 em{color:var(--coral)}
+/* flip word */
+.flip{display:inline-block;position:relative;min-width:8ch;color:var(--coral);font-style:italic;font-family:var(--serif-it)}
+.flip span{display:inline-block;animation:flip 8s infinite;transform-origin:50% 50%}
+@keyframes flip{
+  0%,22%{transform:rotateX(0)}
+  25%,47%{transform:rotateX(90deg)}
+  50%,72%{transform:rotateX(0)}
+  75%,97%{transform:rotateX(90deg)}
+  100%{transform:rotateX(0)}
+}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-stats{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap}
+.hero-stats div strong{font-family:var(--serif);font-size:2rem;display:block;line-height:1}
+.hero-stats div span{font-size:.85rem;color:var(--muted)}
+/* collage */
+.collage{position:relative;aspect-ratio:1/1.1;max-width:520px;justify-self:center;width:100%}
+.collage .c-card{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(18,18,43,.4);border:6px solid var(--paper);transition:transform .5s}
+.collage .c-card .ph{width:100%;height:100%;border-radius:12px}
+.collage .c1{width:70%;height:78%;left:0;top:0;transform:rotate(-4deg);z-index:2}
+.collage .c2{width:62%;height:66%;right:0;bottom:0;transform:rotate(5deg);z-index:3}
+.collage:hover .c1{transform:rotate(-6deg) translateY(-6px)}
+.collage:hover .c2{transform:rotate(7deg) translateY(-6px)}
+.collage .stamp2{position:absolute;top:-18px;right:0;width:96px;height:96px;border-radius:50%;background:var(--coral);color:var(--paper);display:grid;place-items:center;text-align:center;font:italic 700 .78rem/1.1 var(--serif);transform:rotate(10deg);box-shadow:0 12px 24px -12px rgba(255,90,78,.8);z-index:4}
+.collage .pill{position:absolute;bottom:8px;left:-10px;z-index:4;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 12px 24px -14px rgba(18,18,43,.7)}
+.collage .pill b{color:var(--gold)}
+
+/* strip */
+.strip{background:var(--ink);color:var(--paper);overflow:hidden;padding:14px 0;white-space:nowrap;position:relative;z-index:2}
+.striptrack{display:inline-flex;animation:strip 34s linear infinite}
+.striptrack span{font-family:var(--serif);font-size:1.3rem;padding:0 26px;display:inline-flex;align-items:center;gap:44px}
+.striptrack span::after{content:"✦";color:var(--gold);font-size:1rem}
+@keyframes strip{to{transform:translateX(-50%)}}
+
+/* awards / press strip */
+.press{padding:34px 0;background:var(--paper-2);position:relative;z-index:2;overflow:hidden}
+.press .wrap{display:flex;align-items:center;gap:clamp(24px,5vw,64px);flex-wrap:wrap;justify-content:center}
+.press .lbl{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.press .logos{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap;justify-content:center;align-items:center;font-family:var(--serif);font-size:1.15rem;color:var(--ink);opacity:.75}
+.press .logos span{transition:.25s}
+.press .logos span:hover{opacity:1;color:var(--coral);transform:translateY(-1px)}
+
+/* countdown */
+.countdown-wrap{background:var(--ink);color:var(--paper);border-radius:24px;padding:clamp(28px,5vw,48px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;margin-top:-60px;position:relative;z-index:5;box-shadow:0 30px 60px -30px rgba(18,18,43,.6)}
+.countdown-wrap h2{font-size:clamp(1.6rem,3vw,2.4rem);max-width:20ch;color:var(--paper)}
+.countdown-wrap p{color:#b9b9cc;font-size:.95rem;margin-top:10px}
+.countdown{display:flex;gap:14px;justify-content:flex-end;flex-wrap:wrap}
+.cd-cell{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 16px;min-width:86px;text-align:center}
+.cd-cell b{font-family:var(--serif);font-size:2rem;display:block;line-height:1;color:var(--gold)}
+.cd-cell span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#b9b9cc}
+
+/* services — expanding panels */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.svc{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4.2;background:var(--paper-2);cursor:pointer;border:0;text-align:left;transition:flex .4s,transform .3s,box-shadow .3s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(18,18,43,.5)}
+.svc .ph{position:absolute;inset:0}
+.svc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,18,43,.92),rgba(18,18,43,.15) 60%)}
+.svc .oc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:var(--paper)}
+.svc .num{font-family:var(--serif);font-size:.9rem;color:var(--gold);font-weight:600}
+.svc h3{font-size:1.5rem;margin:6px 0 4px}
+.svc p{font-size:.88rem;color:#dcdce8;max-width:24ch}
+.svc .detail{max-height:0;overflow:hidden;opacity:0;transition:.4s;font-size:.82rem;color:#dcdce8;margin-top:0}
+.svc:hover .detail,.svc:focus-visible .detail{max-height:120px;opacity:1;margin-top:12px}
+.svc .detail ul{list-style:none;display:grid;gap:6px;margin-top:8px}
+.svc .detail li{padding-left:14px;position:relative}
+.svc .detail li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.svc .arrow{margin-top:14px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(250,246,239,.4);display:grid;place-items:center;transition:.25s}
+.svc:hover .arrow{background:var(--coral);border-color:var(--coral)}
+
+/* portfolio */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 32px}
+.chip{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:.9rem;font-weight:500;transition:.2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.masonry{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.work{position:relative;border-radius:16px;overflow:hidden;background:var(--paper-2);cursor:pointer;border:0;text-align:left;min-height:200px;transition:transform .35s,opacity .35s}
+.work .ph{position:absolute;inset:0}
+.work .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,18,43,.85),transparent 60%);opacity:.85;transition:.3s}
+.work:hover{transform:scale(1.01)}
+.work:hover .ph::after{opacity:1}
+.work .meta{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;color:var(--paper)}
+.work .meta small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.work .meta h3{font-size:1.25rem;margin-top:4px}
+.work.w1{grid-column:span 3;grid-row:span 2}
+.work.w2,.work.w3{grid-column:span 3}
+.work.w4,.work.w5,.work.w6{grid-column:span 2}
+.work.hide{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(12,12,25,.9);z-index:200;display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:.25s}
+.lb.on{opacity:1;visibility:visible}
+.lb-inner{max-width:1100px;width:100%;position:relative}
+.lb-img{aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#000}
+.lb-meta{color:var(--paper);padding:16px 4px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:end}
+.lb-meta small{color:var(--gold);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}
+.lb-meta h3{font-size:1.6rem;margin-top:4px}
+.lb-close{position:absolute;top:-8px;right:-8px;width:44px;height:44px;border-radius:50%;background:var(--paper);border:0;color:var(--ink);font-size:1.4rem;display:grid;place-items:center;box-shadow:0 10px 20px -10px rgba(0,0,0,.5)}
+.lb-close:hover{background:var(--coral);color:var(--paper)}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step-card{position:relative;padding:26px 24px 24px;background:var(--paper);border:1px solid var(--line);border-radius:20px;counter-increment:step;transition:transform .25s,box-shadow .25s}
+.step-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(18,18,43,.35)}
+.step-card::before{content:counter(step,decimal-leading-zero);font-family:var(--serif);font-size:2.4rem;color:var(--coral);display:block;line-height:1;margin-bottom:10px}
+.step-card h3{font-size:1.15rem;margin-bottom:6px}
+.step-card p{font-size:.9rem;color:var(--muted)}
+
+/* stats band */
+.statsband{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.statsband::before{content:"";position:absolute;inset:auto -20% -40% auto;width:60%;height:120%;background:radial-gradient(closest-side,rgba(255,90,78,.25),transparent);pointer-events:none}
+.statsband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.stat-cell{text-align:left;border-left:1px solid rgba(250,246,239,.16);padding-left:22px}
+.stat-cell b{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);line-height:1;color:var(--gold);display:block}
+.stat-cell span{font-size:.9rem;color:#b9b9cc;display:block;margin-top:8px;max-width:20ch}
+
+/* estimator */
+.estimator{background:var(--ink);color:var(--paper);border-radius:24px;padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.estimator h2{color:var(--paper)}
+.estimator p{color:#b9b9cc;margin-top:12px}
+.slider-group{margin-top:22px}
+.slider-group label{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:#dcdce8;margin-bottom:10px}
+.slider-group output{font-family:var(--serif);font-size:1.3rem;color:var(--gold)}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:999px;background:rgba(255,255,255,.16);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--coral);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 2px var(--coral)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--coral);cursor:pointer;border:3px solid var(--ink)}
+.est-result{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px}
+.est-result .lbl{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#b9b9cc}
+.est-result .big{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);color:var(--gold);line-height:1;margin:8px 0 6px}
+.est-result .sub{font-size:.9rem;color:#dcdce8}
+.est-result .bars{margin-top:18px;display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:100px 1fr 44px;gap:10px;align-items:center;font-size:.82rem;color:#dcdce8}
+.bar .track{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar .fill{height:100%;background:var(--coral);border-radius:999px;width:0;transition:width .5s}
+
+/* filmstrip */
+.filmstrip{background:var(--paper-2);overflow:hidden;position:relative}
+.filmstrip .wrap{position:relative}
+.fs-scroll{display:flex;gap:16px;overflow-x:auto;padding:6px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.fs-scroll::-webkit-scrollbar{height:8px}
+.fs-scroll::-webkit-scrollbar-thumb{background:var(--ink);border-radius:99px;opacity:.4}
+.fs-item{flex:0 0 300px;scroll-snap-align:start}
+.fs-item .ph{aspect-ratio:4/5;border-radius:16px}
+.fs-item small{display:block;margin-top:10px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-d)}
+.fs-item h4{font-family:var(--serif);font-size:1.15rem;margin-top:4px}
+.fs-nav{display:flex;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.fs-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center}
+.fs-nav button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fs-nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* testimonials carousel */
+.carousel{position:relative;overflow:hidden;border-radius:24px;background:var(--ink);color:var(--paper)}
+.slides{display:flex;transition:transform .5s ease}
+.slide{flex:0 0 100%;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.slide .avatar{width:90px;height:90px;border-radius:50%;overflow:hidden;border:3px solid var(--gold)}
+.slide blockquote{font-family:var(--serif-it);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.35}
+.slide cite{display:block;margin-top:14px;font:600 .9rem var(--sans);color:var(--gold);font-style:normal}
+.carousel .dots{display:flex;gap:8px;justify-content:center;padding:0 0 18px}
+.carousel .dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.3);transition:.2s}
+.carousel .dots button[aria-selected=true]{background:var(--coral);width:28px;border-radius:999px}
+.carousel .arrow-l,.carousel .arrow-r{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--paper);display:grid;place-items:center;z-index:3;transition:.2s}
+.carousel .arrow-l{left:14px}.carousel .arrow-r{right:14px}
+.carousel .arrow-l:hover,.carousel .arrow-r:hover{background:var(--coral);border-color:var(--coral)}
+.carousel .arrow-l svg,.carousel .arrow-r svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+.thumbs{display:flex;gap:12px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.thumbs button{width:56px;height:56px;border-radius:50%;border:2px solid transparent;padding:0;background:transparent;overflow:hidden;transition:.2s}
+.thumbs button[aria-pressed=true]{border-color:var(--coral);transform:scale(1.08)}
+.thumbs img{border-radius:50%}
+
+/* planner form */
+.planner{background:var(--paper-2);border-radius:24px;padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,56px);align-items:start}
+.planner-intro h2{margin-bottom:12px}
+.planner-intro p{color:var(--muted);font-size:.95rem}
+.planner-intro ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.planner-intro li{display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:var(--muted)}
+.planner-intro li .tick{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:var(--coral);color:var(--paper);display:grid;place-items:center;font-size:.75rem;margin-top:2px}
+.form-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,32px);box-shadow:0 20px 40px -30px rgba(18,18,43,.35)}
+.progress{display:flex;gap:8px;margin-bottom:22px}
+.progress .p-seg{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.progress .p-seg .fill{height:100%;background:var(--coral);width:0;transition:width .4s}
+.step-pane{display:none}
+.step-pane.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.step-pane h3{margin-bottom:6px;font-size:1.4rem}
+.step-pane .sub{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:.85rem;font-weight:600}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.field textarea{min-height:100px;resize:vertical}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.type-opt{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;background:var(--paper);transition:.2s;text-align:left;font:inherit}
+.type-opt:hover{border-color:var(--coral)}
+.type-opt[aria-pressed=true]{border-color:var(--coral);background:rgba(255,90,78,.06);box-shadow:0 0 0 3px rgba(255,90,78,.12)}
+.type-opt strong{display:block;font-family:var(--serif);font-size:1.05rem}
+.type-opt small{color:var(--muted);font-size:.8rem}
+.nav-btns{display:flex;justify-content:space-between;gap:12px;margin-top:20px}
+.msg{font-size:.9rem;min-height:1.3em;margin-top:10px}
+.msg.ok{color:#1f7a3a}.msg.err{color:var(--coral-d)}
+
+/* FAQ two-column with sticky heading */
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(28px,5vw,64px);align-items:start}
+.faq-side{position:sticky;top:110px}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:0 22px;transition:box-shadow .2s}
+.faq details[open]{box-shadow:0 16px 30px -22px rgba(18,18,43,.35)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;font-family:var(--serif);font-size:1.15rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:1.6rem/1 var(--sans);color:var(--coral);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 22px;color:var(--muted);font-size:.95rem;max-width:66ch}
+
+/* CTA band with sparkles */
+.cta-band{background:var(--coral);color:var(--paper);border-radius:24px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+.cta-band::before,.cta-band::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.cta-band::before{width:340px;height:340px;right:-120px;top:-120px;background:radial-gradient(closest-side,rgba(233,185,73,.55),transparent 70%)}
+.cta-band::after{width:260px;height:260px;left:-100px;bottom:-140px;background:radial-gradient(closest-side,rgba(255,255,255,.35),transparent 70%)}
+.cta-band h2{color:var(--paper);position:relative;z-index:2}
+.cta-band p{color:rgba(250,246,239,.9);margin-top:10px;max-width:44ch;position:relative;z-index:2}
+.cta-band .btn{background:var(--paper);color:var(--ink);border-color:var(--paper);position:relative;z-index:2}
+.cta-band .btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* FIX ADDED HERE */
+.cta-band .btn.ghost{background:transparent;color:var(--paper);border-color:var(--paper)}
+.cta-band .btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* end fix */
+.spark{position:absolute;color:var(--gold);pointer-events:none;animation:twinkle 3s infinite ease-in-out}
+.spark svg{width:100%;height:100%;fill:currentColor}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+
+/* footer */
+footer{background:var(--ink);color:var(--paper);padding:64px 0 0;overflow:hidden;position:relative;z-index:2}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;margin-bottom:48px}
+footer h4{font:600 .95rem var(--sans);margin-bottom:14px;color:var(--paper)}
+footer li{list-style:none;margin-bottom:8px;font-size:.92rem;color:#b9b9cc}
+footer li a:hover{color:var(--gold);text-decoration:underline}
+footer p{color:#b9b9cc;font-size:.92rem}
+.news-mini{display:flex;gap:8px;margin-top:12px}
+.news-mini input{flex:1;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(250,246,239,.25);background:transparent;color:var(--paper);font-size:.9rem}
+.news-mini input::placeholder{color:#8a8aa0}
+.news-mini button{min-height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--coral);color:var(--paper);font-weight:600;font-size:.85rem}
+.news-mini button:hover{background:var(--coral-d)}
+.news-mini .msg{grid-column:1/-1;margin-top:4px}
+.wm{font-family:var(--serif);font-size:clamp(3rem,15vw,12rem);line-height:.85;letter-spacing:-.04em;color:rgba(255,90,78,.18);margin:0 0 26px;white-space:nowrap;text-align:center;font-weight:700}
+.fb{border-top:1px solid rgba(250,246,239,.14);padding:22px 0 30px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:#b9b9cc}
+
+/* floating buttons */
+.floatstack{position:fixed;right:18px;bottom:18px;z-index:70;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.fq-main{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:0;padding:14px 22px;border-radius:999px;font-weight:600;box-shadow:0 18px 30px -18px rgba(18,18,43,.7);transition:.25s}
+.fq-main:hover{background:var(--coral);transform:translateY(-2px)}
+.fq-main svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.topbtn{width:44px;height:44px;border-radius:50%;border:0;background:var(--paper);color:var(--ink);display:grid;place-items:center;box-shadow:0 10px 20px -10px rgba(18,18,43,.6);opacity:0;visibility:hidden;transition:.25s}
+.topbtn.on{opacity:1;visibility:visible}
+.topbtn:hover{background:var(--coral);color:var(--paper)}
+.topbtn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* mobile nav */
+.mnav{display:none;position:fixed;inset:0 0 auto 0;z-index:65;background:var(--paper);padding:96px var(--pad) 32px;transform:translateY(-100%);transition:transform .3s;border-bottom:1px solid var(--line)}
+.mnav.on{transform:none}
+.mnav a{display:block;padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.4rem}
+.mnav .btn{margin-top:20px;width:100%}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .collage{max-width:440px;margin:20px auto 0}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .masonry{grid-template-columns:repeat(4,1fr)}
+  .work.w1{grid-column:span 4}
+  .work.w2,.work.w3{grid-column:span 2}
+  .work.w4,.work.w5,.work.w6{grid-column:span 2}
+  .process{grid-template-columns:repeat(2,1fr)}
+  .estimator{grid-template-columns:1fr}
+  .planner{grid-template-columns:1fr}
+  .countdown-wrap{grid-template-columns:1fr;text-align:left}
+  .countdown{justify-content:flex-start}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .cta-band{grid-template-columns:1fr}
+  .statsband .wrap{grid-template-columns:repeat(2,1fr);gap:32px}
+  .stat-cell{border-left:0;padding-left:0;border-top:1px solid rgba(250,246,239,.16);padding-top:18px}
+  .faq-grid{grid-template-columns:1fr}
+  .faq-side{position:static}
+}
+@media(max-width:820px){
+  .links,.acts .btn{display:none}
+  .burger{display:grid}
+  .mnav{display:block}
+  header{z-index:66}
+  .topbar .wrap{justify-content:center;text-align:center}
+  .slide{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .carousel .arrow-l,.carousel .arrow-r{display:none}
+  .statsband .wrap{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .services{grid-template-columns:1fr}
+  .masonry{grid-template-columns:1fr}
+  .work.w1,.work.w2,.work.w3,.work.w4,.work.w5,.work.w6{grid-column:span 1;grid-row:span 1}
+  .process{grid-template-columns:1fr}
+  .type-grid,.field-row{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .cd-cell{min-width:70px;padding:10px 12px}
+  .cd-cell b{font-size:1.5rem}
+  .floatstack{right:12px;bottom:12px}
+  .fq-main{padding:12px 18px;font-size:.9rem}
+  .collage .stamp2{width:78px;height:78px;font-size:.65rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .striptrack,.flip span,.spark{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Now booking Spring &amp; Summer 2027 · Bengaluru &amp; destination</span>
+    <span>Call <a href="tel:+918000000000">+91 80000 00000</a> · <a href="#planner">Get a proposal</a></span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Lumen & Loom Events home"><span class="dot"></span>Lumen &amp; Loom</a>
+    <nav class="links" aria-label="Main">
+      <a href="#work">Portfolio</a>
+      <a href="#services">Events</a>
+      <a href="#process">Process</a>
+      <a href="#estimate">Budget</a>
+      <a href="#planner">Plan</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="acts">
+      <a href="#planner" class="btn sm coral">Book a call</a>
+      <button class="iconbtn burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="rail" id="rail" aria-label="Section shortcuts">
+  <a href="#top" data-label="Top"></a>
+  <a href="#work" data-label="Portfolio"></a>
+  <a href="#services" data-label="Events"></a>
+  <a href="#process" data-label="Process"></a>
+  <a href="#estimate" data-label="Budget"></a>
+  <a href="#planner" data-label="Plan"></a>
+  <a href="#faq" data-label="FAQ"></a>
+</nav>
+
+<nav class="mnav" id="mnav" aria-label="Mobile">
+  <a href="#work">Portfolio</a>
+  <a href="#services">Events</a>
+  <a href="#process">Process</a>
+  <a href="#estimate">Budget</a>
+  <a href="#planner">Plan</a>
+  <a href="#faq">FAQ</a>
+  <a href="#planner" class="btn coral">Book a call</a>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="glow" id="glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Boutique event studio · Bengaluru</span>
+      <h1>We turn one day into the <span class="ital">story</span> people retell for years.</h1>
+      <p class="lede">Weddings, brand launches and corporate gatherings — designed end to end, produced on the day, remembered long after the lights go down. We plan <span class="flip" aria-hidden="true"><span>weddings</span></span> and everything around them.</p>
+      <div class="cta-row">
+        <a href="#planner" class="btn coral">Plan my event
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#work" class="btn ghost">See our work</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="180">0</strong><span>Events produced</span></div>
+        <div><strong data-count="9">0</strong><span>Years in Bengaluru</span></div>
+        <div><strong data-count="98" data-suffix="%">0</strong><span>Client referral</span></div>
+      </div>
+    </div>
+    <div class="collage">
+      <div class="c-card c1 zoom"><div class="ph"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=max&w=1400&q=90" alt="Wedding table setting" loading="eager"></div></div>
+      <div class="c-card c2 zoom"><div class="ph"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=max&w=1400&q=90" alt="Event lighting on stage" loading="eager"></div></div>
+      <div class="stamp2" aria-hidden="true">Season<br>2027<br>now open</div>
+      <div class="pill" aria-hidden="true"><b>14 Feb 2027</b> · Bloom &amp; Brass showcase</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="striptrack">
+    <span>Weddings</span><span>Brand launches</span><span>Corporate galas</span><span>Private dinners</span><span>Destination events</span><span>Product reveals</span>
+    <span>Weddings</span><span>Brand launches</span><span>Corporate galas</span><span>Private dinners</span><span>Destination events</span><span>Product reveals</span>
+  </div>
+</div>
+
+<!-- press/awards -->
+<section class="press">
+  <div class="wrap">
+    <span class="lbl">As seen in</span>
+    <div class="logos">
+      <span>Vogue Weddings</span>
+      <span>Condé Nast Traveller</span>
+      <span>Elle Décor</span>
+      <span>Femina</span>
+      <span>Architectural Digest</span>
+      <span>The Hindu</span>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="countdown-wrap">
+      <div>
+        <h2>Next showcase: <span class="ital">Bloom &amp; Brass</span>, in Bengaluru.</h2>
+        <p>A walkthrough of our 2027 wedding &amp; brand styling collections. RSVP to attend.</p>
+      </div>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="cd-cell"><b id="cd-d">--</b><span>Days</span></div>
+        <div class="cd-cell"><b id="cd-h">--</b><span>Hours</span></div>
+        <div class="cd-cell"><b id="cd-m">--</b><span>Min</span></div>
+        <div class="cd-cell"><b id="cd-s">--</b><span>Sec</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px">
+      <div>
+        <span class="eyebrow">What we plan</span>
+        <h2 style="margin-top:14px">Four kinds of events, one obsessive standard.</h2>
+      </div>
+      <p class="lede" style="max-width:40ch">Hover each card to see what's inside. Every event type has its own producer and vendor bench.</p>
+    </div>
+    <div class="services">
+      <button class="svc" data-svc="wedding">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=max&w=1400&q=90" alt="Wedding mandap with flowers" loading="lazy"></div>
+        <div class="oc"><span class="num">01</span><h3>Weddings</h3><p>Multi-day, multi-vendor, fully produced.</p>
+        <div class="detail"><ul><li>Full planning &amp; styling</li><li>Vendor management</li><li>Guest logistics</li><li>On-the-day production</li></ul></div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </button>
+      <button class="svc" data-svc="launch">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=max&w=1400&q=90" alt="Brand launch stage lighting" loading="lazy"></div>
+        <div class="oc"><span class="num">02</span><h3>Brand launches</h3><p>Press-ready reveals and product moments.</p>
+        <div class="detail"><ul><li>Concept &amp; creative direction</li><li>Press &amp; influencer logistics</li><li>Stage &amp; AV production</li><li>Post-event content capture</li></ul></div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </button>
+      <button class="svc" data-svc="corporate">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=max&w=1400&q=90" alt="Corporate gala dinner" loading="lazy"></div>
+        <div class="oc"><span class="num">03</span><h3>Corporate</h3><p>Offsites, galas, award nights and town halls.</p>
+        <div class="detail"><ul><li>Venue sourcing</li><li>Brand-consistent design</li><li>Awards &amp; entertainment</li><li>Full AV &amp; broadcast</li></ul></div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </button>
+      <button class="svc" data-svc="private">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=max&w=1400&q=90" alt="Intimate private dinner table" loading="lazy"></div>
+        <div class="oc"><span class="num">04</span><h3>Private</h3><p>Birthdays, anniversaries and intimate dinners.</p>
+        <div class="detail"><ul><li>Chef &amp; menu curation</li><li>Table styling &amp; florals</li><li>Music &amp; lighting</li><li>Discreet production</li></ul></div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="statsband">
+  <div class="wrap">
+    <div class="stat-cell"><b data-count="180">0</b><span>Events produced since 2017</span></div>
+    <div class="stat-cell"><b data-count="42">0</b><span>Cities we've worked in</span></div>
+    <div class="stat-cell"><b data-count="96" data-suffix="%">0</b><span>Guests who'd hire us again</span></div>
+    <div class="stat-cell"><b data-count="14">0</b><span>Awards &amp; press features</span></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2 style="margin-top:14px">A few days we'd happily live again.</h2>
+      </div>
+      <p class="lede" style="max-width:40ch">Filter by event type. Click any tile to see it larger.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter portfolio">
+      <button class="chip" aria-pressed="true" data-f="all">All</button>
+      <button class="chip" aria-pressed="false" data-f="wedding">Weddings</button>
+      <button class="chip" aria-pressed="false" data-f="launch">Launches</button>
+      <button class="chip" aria-pressed="false" data-f="corporate">Corporate</button>
+      <button class="chip" aria-pressed="false" data-f="private">Private</button>
+    </div>
+    <div class="masonry" id="masonry">
+      <button class="work w1 zoom" data-cat="wedding" data-img="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=max&w=1920&q=90" data-title="Ananya &amp; Rohan" data-kicker="Wedding · Coorg">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=max&w=1920&q=90" alt="Outdoor wedding ceremony" loading="lazy"></div>
+        <div class="meta"><small>Wedding · Coorg</small><h3>Ananya &amp; Rohan</h3></div>
+      </button>
+      <button class="work w2 zoom" data-cat="launch" data-img="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=max&w=1920&q=90" data-title="Halcyon Audio" data-kicker="Launch · Bengaluru">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=max&w=1400&q=90" alt="Product launch stage" loading="lazy"></div>
+        <div class="meta"><small>Launch · Bengaluru</small><h3>Halcyon Audio</h3></div>
+      </button>
+      <button class="work w3 zoom" data-cat="corporate" data-img="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=max&w=1920&q=90" data-title="Northstar Awards" data-kicker="Corporate · Mumbai">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=max&w=1400&q=90" alt="Award night lights" loading="lazy"></div>
+        <div class="meta"><small>Corporate · Mumbai</small><h3>Northstar Awards</h3></div>
+      </button>
+      <button class="work w4 zoom" data-cat="private" data-img="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=max&w=1920&q=90" data-title="The 40th, quietly" data-kicker="Private · Bengaluru">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=max&w=1400&q=90" alt="Private dinner party" loading="lazy"></div>
+        <div class="meta"><small>Private · Bengaluru</small><h3>The 40th, quietly</h3></div>
+      </button>
+      <button class="work w5 zoom" data-cat="wedding" data-img="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=max&w=1920&q=90" data-title="Meera &amp; Kabir" data-kicker="Wedding · Goa">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=max&w=1400&q=90" alt="Wedding couple portrait" loading="lazy"></div>
+        <div class="meta"><small>Wedding · Goa</small><h3>Meera &amp; Kabir</h3></div>
+      </button>
+      <button class="work w6 zoom" data-cat="launch" data-img="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=max&w=1920&q=90" data-title="Verdant Skincare" data-kicker="Launch · Hyderabad">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=max&w=1400&q=90" alt="Conference audience" loading="lazy"></div>
+        <div class="meta"><small>Launch · Hyderabad</small><h3>Verdant Skincare</h3></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2 style="margin:14px 0 34px;max-width:20ch">Four steps from first call to final toast.</h2>
+    <div class="process">
+      <div class="step-card"><h3>Discovery call</h3><p>A 30-minute call to understand the guest list, the mood and the non-negotiables.</p></div>
+      <div class="step-card"><h3>Design &amp; proposal</h3><p>A visual concept, budget breakdown and vendor shortlist — all in one document.</p></div>
+      <div class="step-card"><h3>Production</h3><p>We manage the vendors, timelines, permits and rehearsals. You approve, we execute.</p></div>
+      <div class="step-card"><h3>On the day</h3><p>Two producers on site from setup to shutdown. You are a guest at your own event.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILMSTRIP -->
+<section class="filmstrip">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:14px">
+      <div>
+        <span class="eyebrow">Behind the scenes</span>
+        <h2 style="margin-top:12px">Setup, styling, final polish.</h2>
+      </div>
+      <div class="fs-nav">
+        <button id="fsPrev" aria-label="Scroll left"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button id="fsNext" aria-label="Scroll right"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="fs-scroll" id="fsScroll">
+      <div class="fs-item"><div class="ph"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=max&w=1000&q=90" alt="Florals on tables"></div><small>Step 01</small><h4>Florals &amp; tablescape</h4></div>
+      <div class="fs-item"><div class="ph"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=max&w=1000&q=90" alt="Stage lighting setup"></div><small>Step 02</small><h4>Stage &amp; lighting</h4></div>
+      <div class="fs-item"><div class="ph"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=max&w=1000&q=90" alt="Dinner service"></div><small>Step 03</small><h4>Service rehearsal</h4></div>
+      <div class="fs-item"><div class="ph"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=max&w=1000&q=90" alt="Awards on stage"></div><small>Step 04</small><h4>Showtime</h4></div>
+      <div class="fs-item"><div class="ph"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=max&w=1000&q=90" alt="Chef plating"></div><small>Step 05</small><h4>Plating &amp; pacing</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATOR -->
+<section id="estimate" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="estimator">
+      <div>
+        <span class="eyebrow" style="color:var(--gold)">Instant estimate</span>
+        <h2 style="margin-top:14px">What would my event cost?</h2>
+        <p>Move the sliders for a rough ballpark. Real quotes depend on venue, season and vendor availability — this gets you in the right range before we talk.</p>
+        <div class="slider-group">
+          <label>Guests <output id="out-guests">120</output></label>
+          <input type="range" id="sl-guests" min="20" max="500" step="10" value="120" aria-label="Number of guests">
+        </div>
+        <div class="slider-group">
+          <label>Tier <output id="out-tier">Signature</output></label>
+          <input type="range" id="sl-tier" min="0" max="2" step="1" value="1" aria-label="Service tier">
+        </div>
+      </div>
+      <div class="est-result" aria-live="polite">
+        <div class="lbl">Estimated range</div>
+        <div class="big" id="est-total">₹ 8.5L – ₹ 12L</div>
+        <div class="sub" id="est-note">Signature tier · 120 guests · Bengaluru</div>
+        <div class="bars">
+          <div class="bar"><span>Venue &amp; decor</span><div class="track"><div class="fill" data-bar="venue"></div></div><span id="pct-venue">—</span></div>
+          <div class="bar"><span>F&amp;B</span><div class="track"><div class="fill" data-bar="fb"></div></div><span id="pct-fb">—</span></div>
+          <div class="bar"><span>Production</span><div class="track"><div class="fill" data-bar="prod"></div></div><span id="pct-prod">—</span></div>
+          <div class="bar"><span>Studio fee</span><div class="track"><div class="fill" data-bar="fee"></div></div><span id="pct-fee">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="wrap">
+    <div class="carousel" id="carousel">
+      <button class="arrow-l" id="prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="slides" id="slides">
+        <div class="slide">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=max&w=300&q=90" alt="Portrait of Ananya"></div>
+          <div>
+            <blockquote>“They ran our three-day wedding like a small airline. Not one thing slipped, and we actually got to enjoy it.”</blockquote>
+            <cite>— Ananya R., wedding · Coorg</cite>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=max&w=300&q=90" alt="Portrait of Rohan"></div>
+          <div>
+            <blockquote>“Our product launch had 40 press in the room and zero chaos. The team handled things we didn't even know needed handling.”</blockquote>
+            <cite>— Rohan M., founder · Halcyon Audio</cite>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=max&w=300&q=90" alt="Portrait of Kavya"></div>
+          <div>
+            <blockquote>“I asked for 'quiet, warm and nothing showy.' They delivered exactly that, and somehow it still felt like an event.”</blockquote>
+            <cite>— Kavya S., private dinner · Bengaluru</cite>
+          </div>
+        </div>
+      </div>
+      <button class="arrow-r" id="next" aria-label="Next testimonial"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="dots" id="dots" role="tablist" aria-label="Testimonial slides"></div>
+    </div>
+    <div class="thumbs" id="thumbs" aria-label="Jump to testimonial"></div>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section id="planner" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="planner">
+      <div class="planner-intro">
+        <span class="eyebrow">Start here</span>
+        <h2 style="margin-top:14px">Tell us about your event.</h2>
+        <p>Three quick steps. We reply within one working day with a first proposal and a call slot.</p>
+        <ul>
+          <li><span class="tick">✓</span> No obligation, no pushy follow-ups</li>
+          <li><span class="tick">✓</span> Real producers, not a sales team</li>
+          <li><span class="tick">✓</span> Honest budgets, line-itemed</li>
+          <li><span class="tick">✓</span> Weddings, launches, corporate &amp; private</li>
+        </ul>
+      </div>
+      <form class="form-card" id="planForm" novalidate>
+        <div class="progress" aria-hidden="true">
+          <div class="p-seg"><div class="fill" data-step="1"></div></div>
+          <div class="p-seg"><div class="fill" data-step="2"></div></div>
+          <div class="p-seg"><div class="fill" data-step="3"></div></div>
+        </div>
+        <div class="step-pane on" data-pane="1">
+          <h3>1. What are we planning?</h3>
+          <p class="sub">Pick the closest fit — you can change your mind later.</p>
+          <div class="type-grid" id="typeGrid">
+            <button type="button" class="type-opt" data-type="wedding" aria-pressed="false"><strong>Wedding</strong><small>Multi-day or single day</small></button>
+            <button type="button" class="type-opt" data-type="launch" aria-pressed="false"><strong>Brand launch</strong><small>Press, reveal, product</small></button>
+            <button type="button" class="type-opt" data-type="corporate" aria-pressed="false"><strong>Corporate</strong><small>Gala, offsite, awards</small></button>
+            <button type="button" class="type-opt" data-type="private" aria-pressed="false"><strong>Private</strong><small>Birthday, dinner, party</small></button>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="p-date">Preferred date</label><input type="date" id="p-date" required></div>
+            <div class="field"><label for="p-guests">Guests (approx.)</label><input type="number" id="p-guests" min="10" max="1000" placeholder="120" required></div>
+          </div>
+          <div class="msg" id="m1" role="status"></div>
+          <div class="nav-btns"><span></span><button type="button" class="btn coral" data-next="2">Continue</button></div>
+        </div>
+        <div class="step-pane" data-pane="2">
+          <h3>2. Where and what budget?</h3>
+          <p class="sub">A range is fine — we'll help narrow it.</p>
+          <div class="field"><label for="p-city">City / venue</label><input id="p-city" placeholder="Bengaluru, Coorg, Goa…" required></div>
+          <div class="field"><label for="p-budget">Budget range</label>
+            <select id="p-budget" required>
+              <option value="">Select a range</option>
+              <option>Under ₹ 5 lakh</option>
+              <option>₹ 5–10 lakh</option>
+              <option>₹ 10–25 lakh</option>
+              <option>₹ 25–50 lakh</option>
+              <option>₹ 50 lakh +</option>
+            </select>
+          </div>
+          <div class="field"><label for="p-vibe">Vibe in a few words</label><textarea id="p-vibe" placeholder="Quiet, warm, gold and ivory, nothing showy…"></textarea></div>
+          <div class="msg" id="m2" role="status"></div>
+          <div class="nav-btns"><button type="button" class="btn ghost" data-back="1">Back</button><button type="button" class="btn coral" data-next="3">Continue</button></div>
+        </div>
+        <div class="step-pane" data-pane="3">
+          <h3>3. How do we reach you?</h3>
+          <p class="sub">We reply within one working day.</p>
+          <div class="field-row">
+            <div class="field"><label for="p-name">Your name</label><input id="p-name" autocomplete="name" required></div>
+            <div class="field"><label for="p-phone">Phone</label><input id="p-phone" type="tel" autocomplete="tel" required></div>
+          </div>
+          <div class="field"><label for="p-email">Email</label><input id="p-email" type="email" autocomplete="email" required></div>
+          <div class="msg" id="m3" role="status"></div>
+          <div class="nav-btns"><button type="button" class="btn ghost" data-back="2">Back</button><button type="submit" class="btn coral">Send my brief</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-side">
+        <span class="eyebrow">Good questions</span>
+        <h2 style="margin-top:14px">Things people ask before booking.</h2>
+        <p class="lede" style="margin-top:14px">Still curious? Write to us at <a href="mailto:hello@lumenandloom.example" style="color:var(--coral);text-decoration:underline">hello@lumenandloom.example</a>.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>How far in advance should I book?</summary><p>Weddings: 8–14 months. Launches and corporate events: 8–12 weeks. Private dinners: 4–6 weeks. If you're inside those windows, ask anyway — we keep buffer slots open.</p></details>
+        <details><summary>Do you work outside Bengaluru?</summary><p>Yes. About a third of our events are destination — Coorg, Goa, Udaipur, Chennai. Travel and stay for the core team are quoted separately and transparently.</p></details>
+        <details><summary>What's your typical studio fee?</summary><p>Planning and production fees start around ₹1.5 lakh for private events and scale with scope. You'll see the fee as a separate line in every proposal — never hidden in vendor margins.</p></details>
+        <details><summary>Can you work with vendors we already love?</summary><p>Absolutely. We'll bring our bench for anything you don't have, and integrate your chosen photographer, florist or caterer into the production plan.</p></details>
+        <details><summary>What happens on the day itself?</summary><p>Two producers on site from first vendor arrival to final shutdown, plus a runner for logistics. You get one number to call for anything.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Let's make something worth retelling.</h2>
+        <p>Tell us the date and the mood. We'll bring the rest.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#planner" class="btn">Start a brief</a>
+        <a href="tel:+918000000000" class="btn ghost">Call us</a>
+      </div>
+      <!-- sparkles -->
+      <span class="spark" style="left:12%;top:18%;width:22px;height:22px;animation-delay:.2s"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
+      <span class="spark" style="right:28%;top:12%;width:14px;height:14px;animation-delay:.8s"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
+      <span class="spark" style="left:64%;bottom:16%;width:18px;height:18px;animation-delay:1.4s"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="color:var(--paper);margin-bottom:12px"><span class="dot"></span>Lumen &amp; Loom</div>
+        <p>Boutique event design and production. Bengaluru &amp; destination.</p>
+        <form class="news-mini" id="miniNews" novalidate>
+          <input type="email" id="miniEmail" placeholder="Your email" aria-label="Email for newsletter">
+          <button type="submit">Subscribe</button>
+          <p class="msg" id="miniMsg" role="status"></p>
+        </form>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#work">Portfolio</a></li>
+          <li><a href="#services">Events</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#estimate">Budget estimator</a></li>
+          <li><a href="#planner">Plan my event</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14, 12th Main, Indiranagar</li>
+          <li>Bengaluru 560038</li>
+          <li><a href="tel:+918000000000">+91 80000 00000</a></li>
+          <li><a href="mailto:hello@lumenandloom.example">hello@lumenandloom.example</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wm" aria-hidden="true">Lumen &amp; Loom</div>
+    <div class="fb">
+      <span>© 2026 Lumen &amp; Loom Events. Demo website: form submissions are simulated.</span>
+      <span><a href="#top">Privacy</a> · <a href="#top">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="floatstack">
+  <button class="topbtn" id="topBtn" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+  <button class="fq-main" id="fq" aria-label="Plan my event">
+    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v6h-6"/></svg>
+    Plan my event
+  </button>
+</div>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lb-img"><img id="lbImg" alt=""></div>
+    <div class="lb-meta">
+      <div><small id="lbKicker">—</small><h3 id="lbTitle">—</h3></div>
+      <a href="#planner" class="btn coral sm" id="lbCta">Plan something like this</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* mobile nav */
+const menu=o=>{$('#mnav').classList.toggle('on',o);$('#burger').setAttribute('aria-expanded',o)};
+$('#burger').onclick=()=>menu(!$('#mnav').classList.contains('on'));
+$('#mnav').addEventListener('click',e=>{if(e.target.closest('a'))menu(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+
+/* hero cursor glow (desktop only) */
+if(!reduce && matchMedia('(hover:hover)')){
+  const hero=$('#hero'),glow=$('#glow');
+  hero.addEventListener('pointermove',e=>{
+    const r=hero.getBoundingClientRect();
+    hero.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    hero.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+}
+
+/* flip word */
+const flipWords=['weddings','launches','galas','dinners','shows'];
+const flipEl=document.querySelector('.flip span');
+if(flipEl && !reduce){
+  let i=0;
+  setInterval(()=>{i=(i+1)%flipWords.length;flipEl.textContent=flipWords[i]},3000);
+}
+
+/* countdown */
+const target=new Date('2027-02-14T16:00:00+05:30').getTime();
+function tick(){
+  const diff=target-Date.now();
+  const d=Math.max(0,Math.floor(diff/86400000));
+  const h=Math.max(0,Math.floor(diff/3600000)%24);
+  const m=Math.max(0,Math.floor(diff/60000)%60);
+  const s=Math.max(0,Math.floor(diff/1000)%60);
+  const pad=n=>String(n).padStart(2,'0');
+  const set=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+  set('#cd-d',pad(d));set('#cd-h',pad(h));set('#cd-m',pad(m));set('#cd-s',pad(s));
+}
+tick();setInterval(tick,1000);
+
+/* animated counters (hero + stats band) */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    if(el.dataset.done)return;
+    el.dataset.done='1';
+    const target=+el.dataset.count, suffix=el.dataset.suffix||'';
+    if(reduce){el.textContent=target+suffix;return}
+    let cur=0;const step=Math.max(1,Math.ceil(target/45));
+    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t)}el.textContent=cur+suffix},28);
+    io.unobserve(el);
+  }),{threshold:.35});
+  $$('[data-count]').forEach(el=>io.observe(el));
+}
+
+/* services -> planner preselect */
+$$('.svc').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const type=btn.dataset.svc;
+    const opt=$(`.type-opt[data-type="${type}"]`);
+    if(opt)opt.click();
+    $('#planner').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* portfolio filter */
+$('#filters').addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  $$('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));
+  const f=b.dataset.f;
+  $$('#masonry .work').forEach(w=>w.classList.toggle('hide',!(f==='all'||w.dataset.cat===f)));
+});
+
+/* lightbox */
+const lb=$('#lb'),lbImg=$('#lbImg'),lbTitle=$('#lbTitle'),lbKicker=$('#lbKicker');
+let lastFocus=null;
+function openLB(btn){
+  lastFocus=document.activeElement;
+  lbImg.src=btn.dataset.img;
+  lbImg.alt=btn.dataset.title;
+  lbTitle.innerHTML=btn.dataset.title;
+  lbKicker.innerHTML=btn.dataset.kicker;
+  lb.classList.add('on');
+  document.body.style.overflow='hidden';
+  $('#lbClose').focus();
+}
+function closeLB(){
+  lb.classList.remove('on');
+  document.body.style.overflow='';
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+$('#masonry').addEventListener('click',e=>{
+  const w=e.target.closest('.work');if(!w)return;openLB(w);
+});
+$('#lbClose').onclick=closeLB;
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('on'))closeLB()});
+$('#lbCta').addEventListener('click',()=>closeLB());
+
+/* filmstrip nav */
+$('#fsPrev').onclick=()=>{const el=$('#fsScroll');el.scrollBy({left:-340,behavior:'smooth'})};
+$('#fsNext').onclick=()=>{const el=$('#fsScroll');el.scrollBy({left:340,behavior:'smooth'})};
+
+/* estimator */
+const TIERS=[{name:'Intimate',mult:1},{name:'Signature',mult:1.6},{name:'Grand',mult:2.4}];
+const BASE=2200;
+function updateEstimate(){
+  const guests=+$('#sl-guests').value;
+  const tierIdx=+$('#sl-tier').value;
+  const tier=TIERS[tierIdx];
+  $('#out-guests').textContent=guests;
+  $('#out-tier').textContent=tier.name;
+  const mid=Math.round(BASE*tier.mult*guests);
+  const low=Math.round(mid*0.82),high=Math.round(mid*1.18);
+  const fmtL=n=>{
+    if(n>=10000000)return '₹ '+(n/10000000).toFixed(1).replace(/\.0$/,'')+'Cr';
+    if(n>=100000)return '₹ '+(n/100000).toFixed(1).replace(/\.0$/,'')+'L';
+    return '₹ '+n.toLocaleString('en-IN');
+  };
+  $('#est-total').textContent=fmtL(low)+' – '+fmtL(high);
+  $('#est-note').textContent=`${tier.name} tier · ${guests} guests · Bengaluru`;
+  const split={venue:.32,fb:.34,prod:.22,fee:.12};
+  Object.entries(split).forEach(([k,v])=>{
+    const bar=$(`.fill[data-bar="${k}"]`),pct=$(`#pct-${k}`);
+    if(bar)bar.style.width=(v*100)+'%';
+    if(pct)pct.textContent=Math.round(v*100)+'%';
+  });
+}
+$('#sl-guests').addEventListener('input',updateEstimate);
+$('#sl-tier').addEventListener('input',updateEstimate);
+updateEstimate();
+
+/* testimonials carousel + thumbs */
+const slides=$('#slides'),slideEls=slides.children;
+const dotsWrap=$('#dots'),thumbsWrap=$('#thumbs');
+let idx=0,timer=null;
+function go(i){
+  idx=(i+slideEls.length)%slideEls.length;
+  slides.style.transform=`translateX(-${idx*100}%)`;
+  [...dotsWrap.children].forEach((d,n)=>d.setAttribute('aria-selected',n===idx));
+  [...thumbsWrap.children].forEach((t,n)=>t.setAttribute('aria-pressed',n===idx));
+}
+function renderDots(){
+  dotsWrap.innerHTML='';thumbsWrap.innerHTML='';
+  [...slideEls].forEach((slide,n)=>{
+    const img=slide.querySelector('.avatar img');
+    const b=document.createElement('button');
+    b.setAttribute('role','tab');b.setAttribute('aria-label',`Slide ${n+1}`);
+    b.addEventListener('click',()=>{go(n);restart()});
+    dotsWrap.appendChild(b);
+    const t=document.createElement('button');
+    t.setAttribute('aria-label',`Jump to ${n+1}`);
+    t.innerHTML=img?`<img src="${img.src}" alt="">`:'';
+    t.addEventListener('click',()=>{go(n);restart()});
+    thumbsWrap.appendChild(t);
+  });
+  go(0);
+}
+function restart(){clearInterval(timer);if(!reduce)timer=setInterval(()=>go(idx+1),6000)}
+renderDots();restart();
+$('#prev').onclick=()=>{go(idx-1);restart()};
+$('#next').onclick=()=>{go(idx+1);restart()};
+let sx=null;
+slides.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+slides.addEventListener('touchend',e=>{
+  if(sx===null)return;
+  const dx=e.changedTouches[0].clientX-sx;
+  if(Math.abs(dx)>50){dx<0?go(idx+1):go(idx-1);restart()}
+  sx=null;
+},{passive:true});
+
+/* planner multi-step */
+let step=1;
+function paintProgress(){
+  $$('.p-seg .fill').forEach((f,n)=>{f.style.width=n<step?'100%':'0'});
+}
+function showStep(n){
+  step=n;
+  $$('.step-pane').forEach(p=>p.classList.toggle('on',+p.dataset.pane===n));
+  paintProgress();
+}
+paintProgress();
+$('#typeGrid').addEventListener('click',e=>{
+  const b=e.target.closest('.type-opt');if(!b)return;
+  $$('#typeGrid .type-opt').forEach(x=>x.setAttribute('aria-pressed',x===b));
+});
+const say=(el,t,ok)=>{el.textContent=t;el.className='msg '+(ok?'ok':'err')};
+$('#planForm').addEventListener('click',e=>{
+  const n=e.target.closest('[data-next]');
+  const b=e.target.closest('[data-back]');
+  if(n){
+    if(step===1){
+      if(!$('.type-opt[aria-pressed="true"]'))return say($('#m1'),'Please choose an event type.');
+      if(!$('#p-date').value)return say($('#m1'),'Please choose a preferred date.');
+      const guests=+$('#p-guests').value;
+      if(!guests||guests<10)return say($('#m1'),'Please enter a guest count of at least 10.');
+      say($('#m1'),'',true);
+    }
+    if(step===2){
+      if(!$('#p-city').value.trim())return say($('#m2'),'Please enter a city or venue.');
+      if(!$('#p-budget').value)return say($('#m2'),'Please choose a budget range.');
+      say($('#m2'),'',true);
+    }
+    showStep(step+1);
+  }
+  if(b)showStep(step-1);
+});
+$('#planForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('#p-name').value.trim();
+  const phone=$('#p-phone').value.trim();
+  const email=$('#p-email').value.trim();
+  const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRe=/^[+\d][\d\s-]{7,14}$/;
+  if(name.length<2)return say($('#m3'),'Please enter your name.');
+  if(!phoneRe.test(phone))return say($('#m3'),'Please enter a valid phone number.');
+  if(!emailRe.test(email))return say($('#m3'),'Please enter a valid email address.');
+  const type=$('.type-opt[aria-pressed="true"]').dataset.type;
+  say($('#m3'),`Thanks, ${name.split(' ')[0]} — your ${type} brief is noted (demo, nothing was actually sent).`,true);
+  setTimeout(()=>{e.target.reset();$$('#typeGrid .type-opt').forEach(x=>x.setAttribute('aria-pressed','false'));showStep(1)},1400);
+});
+const today=new Date();
+$('#p-date').min=new Date(today-today.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+
+/* floating + back-to-top */
+$('#fq').onclick=()=>$('#planner').scrollIntoView({behavior:'smooth'});
+const topBtn=$('#topBtn');
+addEventListener('scroll',()=>{topBtn.classList.toggle('on',scrollY>600)});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* mini newsletter */
+$('#miniNews').onsubmit=e=>{
+  e.preventDefault();
+  const v=$('#miniEmail').value.trim();
+  const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const m=$('#miniMsg');
+  if(re.test(v)){m.textContent='Thanks — you are subscribed (demo).';m.className='msg ok';e.target.reset()}
+  else{m.textContent='Enter a valid email.';m.className='msg err'}
+};
+
+/* reveal on scroll */
+if(!reduce && 'IntersectionObserver' in window){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}
+  }),{threshold:.12});
+  $$('section > .wrap > *').forEach(el=>{el.classList.add('rv');ro.observe(el)});
+}
+
+/* side rail active */
+if('IntersectionObserver' in window){
+  const ids=['top','work','services','process','estimate','planner','faq'];
+  const railLinks=$$('#rail a');
+  const secs=ids.map(id=>document.getElementById(id)).filter(Boolean);
+  const sio=new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      if(!en.isIntersecting)return;
+      railLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>sio.observe(s));
+}
+})();
+</script>
+</body>
+</html>

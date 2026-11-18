@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURA Studio | Architecture & Urban Design</title>
+<meta name="description" content="AURA is an architecture and urban design studio exploring the intersection of material, light, and human scale. Selected works and essays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f4f4;
+  --bg-alt:#e8e8e8;
+  --ink:#111111;
+  --ink-muted:#666666;
+  --accent:#ff3b00;
+  --line:#cccccc;
+  --line-dark:#333333;
+  --font-display:'Syne',sans-serif;
+  --font-sans:'Inter',sans-serif;
+  --pad:clamp(20px,4vw,64px);
+  --w:1600px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.05);transition:filter .6s ease,transform .6s ease}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit;border:0;background:none}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+
+/* typography */
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1;letter-spacing:-.03em}
+h1{font-size:clamp(3rem,8vw,7.5rem);text-transform:uppercase}
+h2{font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase}
+h3{font-size:clamp(1.2rem,2vw,1.8rem)}
+p{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ink-muted);font-weight:300;max-width:65ch}
+.label{font-family:var(--font-sans);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--ink-muted);display:flex;align-items:center;gap:12px}
+.label::before{content:"";width:20px;height:1px;background:var(--ink-muted)}
+.accent-text{color:var(--accent)}
+
+/* layout */
+section{padding:clamp(80px,10vw,140px) 0;position:relative;border-top:1px solid var(--line)}
+header{border-bottom:1px solid var(--line)}
+
+/* Header / Nav */
+.nav{display:flex;justify-content:space-between;align-items:center;height:80px}
+.logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;letter-spacing:-.05em;text-transform:uppercase;display:flex;align-items:baseline;gap:4px}
+.logo span{font-size:.6rem;font-weight:500;letter-spacing:0;color:var(--ink-muted)}
+.nav-links{display:flex;gap:36px;font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.nav-links a{position:relative;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+
+/* Hero */
+.hero{padding-top:clamp(40px,6vw,80px);padding-bottom:0;border:0;display:flex;flex-direction:column;min-height:100vh;justify-content:space-between}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+.hero-title{mix-blend-mode:multiply}
+.hero-meta{display:flex;flex-direction:column;gap:24px;text-align:right;padding-top:16px}
+.hero-meta p{font-size:.9rem;margin-left:auto}
+.hero-images{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:16px;margin-top:clamp(40px,6vw,80px);height:50vh;min-height:400px}
+.hero-images .img-wrap{overflow:hidden;position:relative}
+.hero-images .img-wrap:nth-child(2){margin-top:-40px}
+.hero-images .img-wrap:nth-child(3){margin-top:20px}
+.hero-images:hover img{filter:grayscale(0%) contrast(1);transform:scale(1.02)}
+.hero-scroll{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--line);margin-top:40px}
+.hero-scroll .icon{width:24px;height:24px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* Approach */
+.approach-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,6vw,120px);align-items:start}
+.approach-text h2{margin-bottom:32px}
+.manifesto{display:grid;gap:32px}
+.manifesto-item{border-top:1px solid var(--line);padding-top:20px;display:grid;grid-template-columns:80px 1fr;gap:20px}
+.manifesto-item .num{font-family:var(--font-display);font-size:1.2rem;color:var(--accent)}
+.manifesto-item h4{font-family:var(--font-sans);font-size:1.1rem;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px}
+.manifesto-item p{font-size:.95rem}
+
+/* Process / Method */
+.process-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px}
+.process-scroll{display:flex;gap:24px;overflow-x:auto;padding-bottom:24px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--ink) var(--bg-alt)}
+.process-scroll::-webkit-scrollbar{height:4px}
+.process-scroll::-webkit-scrollbar-track{background:var(--bg-alt)}
+.process-scroll::-webkit-scrollbar-thumb{background:var(--ink)}
+.process-step{flex:0 0 320px;scroll-snap-align:start;display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:24px}
+.process-step .step-num{font-family:var(--font-display);font-size:3rem;line-height:.8;color:var(--bg-alt);text-shadow:1px 1px 0 var(--line), -1px -1px 0 var(--line), 1px -1px 0 var(--line), -1px 1px 0 var(--line);margin-bottom:16px}
+.process-step h4{font-family:var(--font-display);font-size:1.4rem;text-transform:uppercase;margin-bottom:12px}
+.process-step p{font-size:.9rem;margin-bottom:24px}
+.process-step .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.process-step .tags span{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border:1px solid var(--line);color:var(--ink-muted)}
+
+/* Portfolio / Selected Works */
+.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.project{position:relative;overflow:hidden;display:block;background:var(--bg-alt)}
+.project:hover img{transform:scale(1.05);filter:grayscale(0%) contrast(1)}
+.project-meta{position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.8) 100%);opacity:0;transition:opacity .4s}
+.project:hover .project-meta{opacity:1}
+.project-meta *{color:#fff}
+.project-meta .top{display:flex;justify-content:space-between;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.project-meta .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.project-meta h3{font-size:clamp(1.5rem,2.5vw,2.2rem);line-height:1.1}
+.project-meta p{color:#ccc;font-size:.85rem;margin-top:4px}
+.project-meta .arrow{width:40px;height:40px;border:1px solid #fff;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+/* specific grid sizes */
+.p-1{grid-column:span 8;aspect-ratio:16/9}
+.p-2{grid-column:span 4;aspect-ratio:4/5}
+.p-3{grid-column:span 4;aspect-ratio:4/5}
+.p-4{grid-column:span 8;aspect-ratio:16/9}
+.p-5{grid-column:span 6;aspect-ratio:1/1}
+.p-6{grid-column:span 6;aspect-ratio:1/1}
+
+/* Blueprint / Ideas */
+.blueprint{background:var(--ink);color:var(--bg);border:0}
+.blueprint .label{color:var(--bg-alt)}
+.blueprint .label::before{background:var(--bg-alt)}
+.blueprint-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,120px);align-items:center}
+.blueprint h2{margin-bottom:32px}
+.blueprint p{color:#aaa}
+.bp-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.bp-stat{border-top:1px solid var(--line-dark);padding-top:16px}
+.bp-stat h4{font-family:var(--font-display);font-size:3rem;line-height:1;margin-bottom:8px;color:var(--bg)}
+.bp-stat span{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:#888}
+.bp-graphic{position:relative;aspect-ratio:1/1;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;background-image:linear-gradient(var(--line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--line-dark) 1px,transparent 1px);background-size:40px 40px;background-position:center center}
+.bp-graphic svg{width:60%;height:60%;stroke:var(--accent);stroke-width:1.5;fill:none}
+.bp-graphic .crosshair{position:absolute;width:20px;height:20px;border:1px solid var(--accent);border-radius:50%;top:20%;right:20%}
+.bp-graphic .crosshair::before,.bp-graphic .crosshair::after{content:"";position:absolute;background:var(--accent)}
+.bp-graphic .crosshair::before{width:1px;height:30px;left:9px;top:-5px}
+.bp-graphic .crosshair::after{width:30px;height:1px;top:9px;left:-5px}
+
+/* Journal */
+.journal-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px}
+.journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.article{display:flex;flex-direction:column;gap:20px;group}
+.article-img{aspect-ratio:4/3;overflow:hidden}
+.article:hover img{transform:scale(1.05)}
+.article .meta{display:flex;gap:16px;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);font-weight:600}
+.article h3{font-size:1.4rem;transition:color .3s}
+.article:hover h3{color:var(--accent)}
+.article p{font-size:.9rem}
+
+/* Contact / Footer */
+.footer{background:var(--bg-alt);padding-bottom:0;border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:80px}
+.footer-top h2{font-size:clamp(3rem,5vw,5rem);line-height:.9}
+.contact-info{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-block h4{font-family:var(--font-sans);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;color:var(--ink-muted)}
+.contact-block a{display:block;font-size:1.1rem;font-weight:500;margin-bottom:4px;transition:color .2s}
+.contact-block a:hover{color:var(--accent)}
+
+/* Sticky bottom bar */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid var(--line);padding:16px var(--pad);display:flex;justify-content:space-between;align-items:center;z-index:100;transform:translateY(100%);transition:transform .4s ease}
+.sticky-bar.on{transform:translateY(0)}
+.sticky-bar .marquee-text{font-family:var(--font-display);font-size:1.2rem;text-transform:uppercase;font-weight:600;white-space:nowrap;overflow:hidden;display:flex;gap:24px}
+.sticky-bar .marquee-text span{display:flex;align-items:center;gap:24px}
+.sticky-bar .marquee-text span::after{content:"✦";font-size:.8rem;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--font-sans);font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:16px 32px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:all .3s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.outline{background:transparent;color:var(--ink)}
+.btn.outline:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* responsive */
+@media(max-width:1024px){
+  .hero-title{font-size:clamp(2.5rem,7vw,5rem)}
+  .hero-images{grid-template-columns:1fr 1fr;height:auto;min-height:0;gap:12px;margin-top:40px}
+  .hero-images .img-wrap:nth-child(2){margin-top:0;grid-column:span 2;aspect-ratio:16/9;order:-1}
+  .hero-images .img-wrap:nth-child(1){aspect-ratio:1/1}
+  .hero-images .img-wrap:nth-child(3){margin-top:0;aspect-ratio:1/1}
+  .hero-meta{display:none}
+  
+  .approach-grid{grid-template-columns:1fr}
+  .blueprint-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  
+  .p-1,.p-2,.p-3,.p-4,.p-5,.p-6{grid-column:span 12;aspect-ratio:16/9}
+  .journal-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .manifesto-item{grid-template-columns:1fr;gap:8px}
+  .journal-grid{grid-template-columns:1fr}
+  .process-step{flex:0 0 260px}
+  .sticky-bar{padding:12px var(--pad)}
+  .sticky-bar .marquee-text{display:none}
+  .sticky-bar .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">AURA<span>Studio</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero wrap">
+  <div class="hero-top">
+    <div class="hero-title">
+      <h1>Material<br>Matter<br><span class="accent-text">Space.</span></h1>
+    </div>
+    <div class="hero-meta">
+      <span class="label">Est. 2014 — Bengaluru</span>
+      <p>We are an architecture and urban design studio exploring the intersection of raw material, natural light, and human scale.</p>
+      <div style="display:flex;gap:12px;margin-top:16px">
+        <a href="#work" class="btn outline">Selected Works</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-images">
+    <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=max&w=1200&q=90" alt="Concrete architecture detail"></div>
+    <div class="img-wrap"><img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=max&w=1920&q=90" alt="Modern building exterior"></div>
+    <div class="img-wrap"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=max&w=1200&q=90" alt="Interior spatial design"></div>
+  </div>
+  
+  <div class="hero-scroll">
+    <span class="label">Scroll to explore</span>
+    <div class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="wrap" id="approach">
+  <div class="approach-grid">
+    <div class="approach-text">
+      <span class="label">01 — Philosophy</span>
+      <h2 style="margin-top:24px">We don't just build structures; we frame experiences.</h2>
+      <p>Our practice is rooted in the belief that architecture is a living, breathing entity. We explore the friction between heavy materials and the ephemeral nature of light, creating spaces that feel inevitable.</p>
+      <div style="margin-top:32px">
+        <a href="#ideas" class="btn outline">Read our manifesto</a>
+      </div>
+    </div>
+    <div class="manifesto">
+      <div class="manifesto-item">
+        <div class="num">01</div>
+        <div>
+          <h4>Material Honesty</h4>
+          <p>We let materials speak for themselves. Concrete, timber, and steel are left exposed, celebrating their structural logic, texture, and imperfections rather than masking them.</p>
+        </div>
+      </div>
+      <div class="manifesto-item">
+        <div class="num">02</div>
+        <div>
+          <h4>Spatial Dynamics</h4>
+          <p>Space is not static. We design sequences of compression and expansion, guiding bodies through volumes to create a physical narrative that changes with the movement of the sun.</p>
+        </div>
+      </div>
+      <div class="manifesto-item">
+        <div class="num">03</div>
+        <div>
+          <h4>Context & Response</h4>
+          <p>Every site has a memory. We study the soil, the prevailing winds, the neighbouring structures, and the local culture to build extensions of the landscape, not impositions upon it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="wrap" id="process">
+  <div class="process-header">
+    <div>
+      <span class="label">02 — The Method</span>
+      <h2 style="margin-top:24px">From sketch to site.</h2>
+    </div>
+    <p style="max-width:400px">A rigorous four-phase methodology that transforms abstract ideas into tangible, buildable realities without losing the original spark.</p>
+  </div>
+  
+  <div class="process-scroll">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h4>Exploration</h4>
+      <p>Understanding the brief, mapping the site's topography, and establishing a conceptual framework through physical sketching and study models.</p>
+      <div class="tags"><span>Concept</span><span>Site Analysis</span><span>Model Making</span></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h4>Schematic</h4>
+      <p>Translating concepts into spatial arrangements. We test scale, massing, and flow, defining the relationship between interior volumes and exterior envelopes.</p>
+      <div class="tags"><span>Massing</span><span>Circulation</span><span>Zoning</span></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h4>Development</h4>
+      <p>Technical resolution. We detail the joints, select the specific material batches, and coordinate with structural and MEP engineers to ensure design integrity.</p>
+      <div class="tags"><span>Detailing</span><span>Material Spec</span><span>Engineering</span></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h4>Execution</h4>
+      <p>On-site supervision. Architecture happens in the real world. We work closely with contractors to ensure the built result matches the conceptual ambition.</p>
+      <div class="tags"><span>Site Visits</span><span>Quality Control</span><span>Handover</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="wrap" id="work">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px">
+    <div>
+      <span class="label">03 — Selected Works</span>
+      <h2 style="margin-top:24px">Built environments.</h2>
+    </div>
+    <p style="max-width:300px">A selection of residential, cultural, and adaptive reuse projects across India.</p>
+  </div>
+  
+  <div class="portfolio-grid">
+    <!-- Project 1 -->
+    <a href="#contact" class="project p-1">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=max&w=1920&q=90" alt="The Courtyard House">
+      <div class="project-meta">
+        <div class="top"><span>Residential</span><span>2025</span></div>
+        <div class="bottom">
+          <div>
+            <h3>The Courtyard House</h3>
+            <p>Bengaluru, India — A monolithic concrete home wrapped around a central water body.</p>
+          </div>
+          <div class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+    </a>
+    
+    <!-- Project 2 -->
+    <a href="#contact" class="project p-2">
+      <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=max&w=1200&q=90" alt="The Brutalist Gallery">
+      <div class="project-meta">
+        <div class="top"><span>Cultural</span><span>2024</span></div>
+        <div class="bottom">
+          <div>
+            <h3>The Brutalist Gallery</h3>
+            <p>Ahmedabad — Adaptive reuse of a textile mill into an art space.</p>
+          </div>
+          <div class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+    </a>
+    
+    <!-- Project 3 -->
+    <a href="#contact" class="project p-3">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=max&w=1200&q=90" alt="Lattice Pavilion">
+      <div class="project-meta">
+        <div class="top"><span>Public Space</span><span>2023</span></div>
+        <div class="bottom">
+          <div>
+            <h3>Lattice Pavilion</h3>
+            <p>Goa — A timber structure designed for passive cooling and community gathering.</p>
+          </div>
+          <div class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+    </a>
+    
+    <!-- Project 4 -->
+    <a href="#contact" class="project p-4">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=max&w=1920&q=90" alt="Vertical Office Tower">
+      <div class="project-meta">
+        <div class="top"><span>Commercial</span><span>2026</span></div>
+        <div class="bottom">
+          <div>
+            <h3>Nexus Tower</h3>
+            <p>Hyderabad — A high-density office block with a naturally ventilated central atrium.</p>
+          </div>
+          <div class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- BLUEPRINT / IDEAS -->
+<section class="blueprint" id="ideas">
+  <div class="wrap blueprint-grid">
+    <div>
+      <span class="label">04 — The Idea</span>
+      <h2 style="margin-top:24px">Architecture is a slow thought.</h2>
+      <p>We reject the fast-paced churn of modern development. Instead, we explore ideas over months and years. We draw by hand, we build 1:1 mockups, and we sit on site to watch how the light moves. This section is an insight into our studio's ongoing research.</p>
+      
+      <div class="bp-stats">
+        <div class="bp-stat">
+          <h4>1:5</h4>
+          <span>Average detail scale</span>
+        </div>
+        <div class="bp-stat">
+          <h4>100%</h4>
+          <span>Site-sensitive design</span>
+        </div>
+        <div class="bp-stat">
+          <h4>14</h4>
+          <span>Material prototypes</span>
+        </div>
+        <div class="bp-stat">
+          <h4>0</h4>
+          <span>Generic templates</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bp-graphic" aria-hidden="true">
+      <div class="crosshair"></div>
+      <!-- Abstract architectural diagram -->
+      <svg viewBox="0 0 100 100">
+        <rect x="20" y="20" width="60" height="60" />
+        <line x1="20" y1="50" x2="80" y2="50" />
+        <line x1="50" y1="20" x2="50" y2="80" />
+        <circle cx="50" cy="50" r="15" />
+        <path d="M 20 20 L 80 80" stroke-dasharray="2 2" />
+        <path d="M 80 20 L 20 80" stroke-dasharray="2 2" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="wrap">
+  <div class="journal-header">
+    <div>
+      <span class="label">05 — Journal</span>
+      <h2 style="margin-top:24px">Explorations & Essays.</h2>
+    </div>
+    <a href="#contact" class="btn outline">Read all entries</a>
+  </div>
+  
+  <div class="journal-grid">
+    <a href="#contact" class="article">
+      <div class="article-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=max&w=800&q=90" alt="Sketching architectural details"></div>
+      <div class="meta"><span>Essay</span><span>Oct 2026</span></div>
+      <h3>The Weight of Concrete</h3>
+      <p>Why the tactile reality of poured concrete matters more than ever in a digital age.</p>
+    </a>
+    
+    <a href="#contact" class="article">
+      <div class="article-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=max&w=800&q=90" alt="Office space interior"></div>
+      <div class="meta"><span>Research</span><span>Sep 2026</span></div>
+      <h3>Post-Pandemic Workspaces</h3>
+      <p>Rethinking the office as a space for social choreography rather than just productivity.</p>
+    </a>
+    
+    <a href="#contact" class="article">
+      <div class="article-img"><img src="https://images.unsplash.com/photo-1470723710355-95304d8aece4?auto=format&fit=max&w=800&q=90" alt="Shadows on a wall"></div>
+      <div class="meta"><span>Observation</span><span>Aug 2026</span></div>
+      <h3>Chasing Shadows</h3>
+      <p>A photo study of how shadows act as the invisible building material in our projects.</p>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <span class="label">06 — Get in touch</span>
+        <h2 style="margin-top:24px">Let's build<br>something<br>inevitable.</h2>
+        <div style="margin-top:40px">
+          <a href="mailto:studio@aura.example" class="btn">Start a project</a>
+        </div>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-block">
+          <h4>Studio</h4>
+          <p>14, 12th Main, Indiranagar<br>Bengaluru 560038<br>India</p>
+        </div>
+        <div class="contact-block">
+          <h4>Inquiries</h4>
+          <a href="mailto:studio@aura.example">studio@aura.example</a>
+          <a href="tel:+918000000000">+91 80000 00000</a>
+        </div>
+        <div class="contact-block">
+          <h4>Social</h4>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Pinterest</a>
+        </div>
+        <div class="contact-block">
+          <h4>Legal</h4>
+          <p style="font-size:.9rem">© 2026 AURA Studio.<br>All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sticky technical footer bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="marquee-text">
+      <span>Available for select commissions</span>
+      <span>Architecture & Urban Design</span>
+      <span>Bengaluru, IN</span>
+    </div>
+    <a href="mailto:studio@aura.example" class="btn">Contact Studio</a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+
+// Sticky footer bar reveal
+const stickyBar=$('#stickyBar');
+const footer=$('#contact');
+window.addEventListener('scroll',()=>{
+  const footerRect=footer.getBoundingClientRect();
+  // If the footer is in view, hide the sticky bar so it doesn't cover content
+  if(footerRect.top < window.innerHeight && footerRect.bottom > 0){
+    stickyBar.classList.remove('on');
+  } else if(window.scrollY > 300){
+    stickyBar.classList.add('on');
+  } else {
+    stickyBar.classList.remove('on');
+  }
+});
+
+// Smooth scroll fallback for browsers that don't support it on the html tag
+$$('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener('click',function(e){
+    const targetId=this.getAttribute('href');
+    if(targetId==='#') return;
+    const targetEl=$(targetId);
+    if(targetEl){
+      e.preventDefault();
+      targetEl.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+})();
+</script>
+</body>
+</html>
